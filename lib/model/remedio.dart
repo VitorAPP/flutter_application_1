@@ -10,8 +10,10 @@ const Remedio({
   required this.nomeRemedio,
   required this.descRemedio,
   required this.imagemRemedio,
-  required this. valorRemedio,
+  required this.valorRemedio,
 });
+
+
 
 factory Remedio.fromJson(Map<String, dynamic> json) => Remedio(
         id: json['id'],

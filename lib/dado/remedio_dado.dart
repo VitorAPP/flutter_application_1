@@ -1,5 +1,5 @@
 import 'package:flutter_application_1/model/remedio.dart';
-
+void addParaCarteira() {}
  final todosRemedios = <Remedio>[
   Remedio(
     id: 1,

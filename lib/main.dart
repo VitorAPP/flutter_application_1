@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/model/carteira_model.dart';
 import 'package:flutter_application_1/model/remedio.dart';
 import 'package:flutter_application_1/pages/carteira.dart';
 import 'package:flutter_application_1/pages/four.dart';
@@ -12,6 +13,8 @@ import 'package:flutter_application_1/pages/dadosPessoa.dart';
 import 'package:flutter_application_1/widget/search_widget.dart';
 import 'package:flutter_application_1/dado/remedio_dado.dart';
 import 'package:flutter_application_1/model/remedio.dart';
+import 'package:flutter_application_1/model/carteira_model.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -95,7 +98,6 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color.fromRGBO(255, 119, 102, 10),
         title: Text('DrogaLive'),
         actions: <Widget>[
-          
           /* IconButton(
             icon: const Icon(Icons.qr_code),
             tooltip: 'Show Snackbar',
@@ -104,8 +106,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   .showSnackBar(const SnackBar(content: Text('QR')));
             },
           ),*/
-          
-          
         ],
       ),
       body: _currentPage,
@@ -193,9 +193,11 @@ class PagePerfil extends StatelessWidget {
   const PagePerfil({Key? key, required this.changePage}) : super(key: key);
   final void Function(int) changePage;
 
-
-
-  ElevatedButton butoesPerfil({required BuildContext context, required Icon iconeDePerfil, required Text textoDoIncone, required int x}) {
+  ElevatedButton butoesPerfil(
+      {required BuildContext context,
+      required Icon iconeDePerfil,
+      required Text textoDoIncone,
+      required int x}) {
     return ElevatedButton(
       style:
           ElevatedButton.styleFrom(primary: Color.fromRGBO(255, 119, 102, 10)),
@@ -216,11 +218,10 @@ class PagePerfil extends StatelessWidget {
       },
       child: ListTile(
           leading: iconeDePerfil,
-          title: textoDoIncone, 
+          title: textoDoIncone,
           textColor: Colors.white),
     );
   }
-  
 
   Container espacamento() {
     return Container(
@@ -252,38 +253,46 @@ class PagePerfil extends StatelessWidget {
             color: Colors.black,
           ),
           espacamento(),
-           espacamento(),
+          espacamento(),
           butoesPerfil(
               context: context,
               iconeDePerfil: Icon(Icons.shopping_cart, color: Colors.black),
-              textoDoIncone: Text('Carrinho de Compras'), x: 0),
-               espacamento(),
+              textoDoIncone: Text('Carrinho de Compras'),
+              x: 0),
+          espacamento(),
           butoesPerfil(
               context: context,
-              iconeDePerfil: Icon(Icons.delivery_dining_sharp, color: Colors.black),
-              textoDoIncone: Text('Acompanhar Pedido'), x: 1),
-               espacamento(),
+              iconeDePerfil:
+                  Icon(Icons.delivery_dining_sharp, color: Colors.black),
+              textoDoIncone: Text('Acompanhar Pedido'),
+              x: 1),
+          espacamento(),
           butoesPerfil(
               context: context,
               iconeDePerfil: Icon(Icons.chat_outlined, color: Colors.black),
-              textoDoIncone: Text('Chats'), x: 2),
-               espacamento(),
+              textoDoIncone: Text('Chats'),
+              x: 2),
+          espacamento(),
           butoesPerfil(
               context: context,
               iconeDePerfil: Icon(Icons.draw_outlined, color: Colors.black),
-              textoDoIncone: Text('Dados Pessoal'), x: 3),
-               espacamento(),
+              textoDoIncone: Text('Dados Pessoal'),
+              x: 3),
+          espacamento(),
           butoesPerfil(
               context: context,
-              iconeDePerfil: Icon(Icons.account_balance_wallet_outlined, color: Colors.black),
-              textoDoIncone: Text('Carteira'), x: 4),
-               espacamento(),
+              iconeDePerfil: Icon(Icons.account_balance_wallet_outlined,
+                  color: Colors.black),
+              textoDoIncone: Text('Carteira'),
+              x: 4),
+          espacamento(),
           butoesPerfil(
               context: context,
               iconeDePerfil: Icon(Icons.settings, color: Colors.black),
-              textoDoIncone: Text('Cofigurações'), x: 5),
-               espacamento(),
-         
+              textoDoIncone: Text('Cofigurações'),
+              x: 5),
+          espacamento(),
+
           // butoesPerfil(context: context, iconeDePerfil: Icon(Icons.shopping_cart, color: Colors.black), textoDoIncone: Text('Carrinho de Compras')),
 
           /* Container(
@@ -303,9 +312,7 @@ class PagePerfil extends StatelessWidget {
             onPressed: () => changePage(1),
             child: const Text('Voltar para principal'), 
           ),*/
-         
 
-         
           /*MaterialButton(
             color: Color.fromRGBO(255, 119, 102, 10),
             onPressed: () {
@@ -318,23 +325,19 @@ class PagePerfil extends StatelessWidget {
             },
             child: ListTile(leading:Icon(Icons.moped_sharp, color: Colors.black,), title: Text('Acompanha pedido'),textColor: Colors.white, ),
           ),*/
-          
-          
-          
-         
         ],
       ),
     );
   }
 }
 
-
 class PageBusca extends StatefulWidget {
-  
-
+  //Remedio remedio;
+  //PageBusca({required this.remedio});
   @override
   _PageBuscaState createState() => _PageBuscaState();
 }
+
 class _PageBuscaState extends State<PageBusca> {
   String query = '';
   late List<Remedio> remedios;
@@ -347,25 +350,22 @@ class _PageBuscaState extends State<PageBusca> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       body:Column(
-
+      body: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-           buildSearch(),
-           Expanded(
-              child: ListView.builder(
-                itemCount: remedios.length,
-                itemBuilder: (context, index) {
-                  final remedio = remedios[index];
+          buildSearch(),
+          Expanded(
+            child: ListView.builder(
+              itemCount: remedios.length,
+              itemBuilder: (context, index) {
+                final remedio = remedios[index];
 
-                  return buildBook(remedio);
-                },
-              ),
+                return buildBook(remedio);
+              },
             ),
-         
-          
-          
+          ),
+
           /*
           Card(
             child: ListTile(
@@ -390,6 +390,7 @@ class _PageBuscaState extends State<PageBusca> {
       ),
     );
   }
+
   Widget buildBook(Remedio remedio) => ListTile(
         leading: Image.network(
           remedio.imagemRemedio,
@@ -400,35 +401,37 @@ class _PageBuscaState extends State<PageBusca> {
         title: Text(remedio.nomeRemedio),
         subtitle: Text(remedio.descRemedio),
         isThreeLine: true,
-        
         trailing: IconButton(
-                    icon: const Icon(
-                      Icons.add_shopping_cart_outlined,
-                      
-                    ),
-                   
-                   // disabledColor: Colors.blue,
-                   // focusColor: Colors.blue,
-                   // hoverColor: Colors.blue,
-                    splashColor: Color.fromARGB(255, 49, 159, 98),
-                    //highlightColor: Colors.blue,
+            icon: const Icon(
+              Icons.add_shopping_cart_outlined,
+            ),
 
-                    tooltip: 'adicionar ao carrinho de compras',
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Icon(Icons.add_task,
-                              color: Color.fromARGB(255, 49, 159, 98))));
-                    }),
-                    
-                    
+            // disabledColor: Colors.blue,
+            // focusColor: Colors.blue,
+            // hoverColor: Colors.blue,
+            splashColor: Color.fromARGB(255, 49, 159, 98),
+            //highlightColor: Colors.blue,
+
+            tooltip: 'adicionar ao carrinho de compras',
+            onPressed: () {
+             /* _addParaCarteira(
+                  nome: widget.remedio.nomeRemedio,
+                  valor: widget.remedio.valorRemedio,
+                  imgR: widget.remedio.imagemRemedio,
+                  qtdeRemedio: 1);
+              */
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Icon(Icons.add_task,
+                      color: Color.fromARGB(255, 49, 159, 98))));
+            }),
       );
   Widget buildSearch() => SearchWidget(
         text: query,
         hintText: 'Nome do remédio ou descrição',
         onChanged: searchRemedio,
       );
-      
-      void searchRemedio(String query) {
+
+  void searchRemedio(String query) {
     final remedios = todosRemedios.where((remedio) {
       final titleLower = remedio.descRemedio.toLowerCase();
       final authorLower = remedio.nomeRemedio.toLowerCase();
@@ -441,6 +444,23 @@ class _PageBuscaState extends State<PageBusca> {
     setState(() {
       this.query = query;
       this.remedios = remedios;
+    });
+  }
+
+  void _addParaCarteira({
+    required String nome,
+    required double valor,
+    required String imgR,
+    required qtdeRemedio,
+  }) {
+    final addRemedio = CarteiraModel(
+      nome: nome,
+      valor: valor,
+      imgR: imgR,
+      qtdeRemedio: qtdeRemedio,
+    );
+    setState(() {
+      carteiraModel.add(addRemedio);
     });
   }
 }
