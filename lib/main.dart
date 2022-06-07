@@ -1,12 +1,17 @@
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/model/remedio.dart';
 import 'package:flutter_application_1/pages/carteira.dart';
 import 'package:flutter_application_1/pages/four.dart';
 import 'package:flutter_application_1/pages/novo.dart';
 import 'package:flutter_application_1/pages/compra.dart';
 import 'package:flutter_application_1/pages/pedido.dart';
 import 'package:flutter_application_1/pages/dadosPessoa.dart';
-
+import 'package:flutter_application_1/widget/search_widget.dart';
+import 'package:flutter_application_1/dado/remedio_dado.dart';
+import 'package:flutter_application_1/model/remedio.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -54,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _pagePerfil = PagePerfil(changePage: _changeTab);
     // _page1 = const Page1();
-    _pageBusca = const PageBusca();
+    _pageBusca = PageBusca();
     _page3 = Page3(changePage: _changeTab);
     _novo = const Novo();
 
@@ -90,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color.fromRGBO(255, 119, 102, 10),
         title: Text('DrogaLive'),
         actions: <Widget>[
+          
           /* IconButton(
             icon: const Icon(Icons.qr_code),
             tooltip: 'Show Snackbar',
@@ -98,18 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   .showSnackBar(const SnackBar(content: Text('QR')));
             },
           ),*/
-          IconButton(
-            icon: const Icon(Icons.search),
-            tooltip: 'Pesquisa',
-            onPressed:
-                null, /*() {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  return _pageBusca;
-                },
-              ));
-            },*/
-          ),
+          
+          
         ],
       ),
       body: _currentPage,
@@ -197,16 +193,24 @@ class PagePerfil extends StatelessWidget {
   const PagePerfil({Key? key, required this.changePage}) : super(key: key);
   final void Function(int) changePage;
 
-/*
-  ElevatedButton butoesPerfil({required BuildContext context, required Icon iconeDePerfil, required Text textoDoIncone }) {
+
+
+  ElevatedButton butoesPerfil({required BuildContext context, required Icon iconeDePerfil, required Text textoDoIncone, required int x}) {
     return ElevatedButton(
       style:
           ElevatedButton.styleFrom(primary: Color.fromRGBO(255, 119, 102, 10)),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute<void>(
           builder: (BuildContext context) {
-            Widget _compra = Compra();
-            return _compra;
+            var cadaum = [
+              Compra(),
+              Pedido(),
+              Novo(),
+              DadosPessoal(),
+              Carteira(),
+              Novo()
+            ];
+            return cadaum[x];
           },
         ));
       },
@@ -216,7 +220,7 @@ class PagePerfil extends StatelessWidget {
           textColor: Colors.white),
     );
   }
-  */
+  
 
   Container espacamento() {
     return Container(
@@ -248,6 +252,38 @@ class PagePerfil extends StatelessWidget {
             color: Colors.black,
           ),
           espacamento(),
+           espacamento(),
+          butoesPerfil(
+              context: context,
+              iconeDePerfil: Icon(Icons.shopping_cart, color: Colors.black),
+              textoDoIncone: Text('Carrinho de Compras'), x: 0),
+               espacamento(),
+          butoesPerfil(
+              context: context,
+              iconeDePerfil: Icon(Icons.delivery_dining_sharp, color: Colors.black),
+              textoDoIncone: Text('Acompanhar Pedido'), x: 1),
+               espacamento(),
+          butoesPerfil(
+              context: context,
+              iconeDePerfil: Icon(Icons.chat_outlined, color: Colors.black),
+              textoDoIncone: Text('Chats'), x: 2),
+               espacamento(),
+          butoesPerfil(
+              context: context,
+              iconeDePerfil: Icon(Icons.draw_outlined, color: Colors.black),
+              textoDoIncone: Text('Dados Pessoal'), x: 3),
+               espacamento(),
+          butoesPerfil(
+              context: context,
+              iconeDePerfil: Icon(Icons.account_balance_wallet_outlined, color: Colors.black),
+              textoDoIncone: Text('Carteira'), x: 4),
+               espacamento(),
+          butoesPerfil(
+              context: context,
+              iconeDePerfil: Icon(Icons.settings, color: Colors.black),
+              textoDoIncone: Text('Cofigurações'), x: 5),
+               espacamento(),
+         
           // butoesPerfil(context: context, iconeDePerfil: Icon(Icons.shopping_cart, color: Colors.black), textoDoIncone: Text('Carrinho de Compras')),
 
           /* Container(
@@ -267,49 +303,9 @@ class PagePerfil extends StatelessWidget {
             onPressed: () => changePage(1),
             child: const Text('Voltar para principal'), 
           ),*/
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Color.fromRGBO(255, 119, 102, 10)),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  Widget _compra = Compra();
-                  return _compra;
-                },
-              ));
-            },
-            child: ListTile(
-                leading: Icon(
-                  Icons.shopping_cart,
-                  color: Colors.black,
-                ),
-                title: Text('Carrinho de Compras'),
-                textColor: Colors.white),
-          ),
+         
 
-          espacamento(),
-
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Color.fromRGBO(255, 119, 102, 10)),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  Widget _pedido = Pedido();
-                  return _pedido;
-                },
-              ));
-            },
-            child: ListTile(
-              leading: Icon(
-                Icons.delivery_dining_sharp,
-                color: Colors.black,
-              ),
-              title: Text('Acompanha Pedido'),
-              textColor: Colors.white,
-            ),
-          ),
-          espacamento(),
+         
           /*MaterialButton(
             color: Color.fromRGBO(255, 119, 102, 10),
             onPressed: () {
@@ -322,104 +318,55 @@ class PagePerfil extends StatelessWidget {
             },
             child: ListTile(leading:Icon(Icons.moped_sharp, color: Colors.black,), title: Text('Acompanha pedido'),textColor: Colors.white, ),
           ),*/
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Color.fromRGBO(255, 119, 102, 10)),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  Widget _novo = Novo();
-                  return _novo;
-                },
-              ));
-            },
-            child: ListTile(
-              leading: Icon(
-                Icons.chat_outlined,
-                color: Colors.black,
-              ),
-              title: Text('Chats'),
-              textColor: Colors.white,
-            ),
-          ),
-          espacamento(),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Color.fromRGBO(255, 119, 102, 10)),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  Widget _dadosPessoal = DadosPessoal();
-                  return _dadosPessoal;
-                },
-              ));
-            },
-            child: ListTile(
-              leading: Icon(
-                Icons.draw_outlined,
-                color: Colors.black,
-              ),
-              title: Text('Dados Pessoais'),
-              textColor: Colors.white,
-            ),
-          ),
-          espacamento(),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Color.fromRGBO(255, 119, 102, 10)),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  Widget _carteira = Carteira();
-                  return _carteira;
-                },
-              ));
-            },
-            child: ListTile(
-              leading: Icon(
-                Icons.account_balance_wallet_outlined,
-                color: Colors.black,
-              ),
-              title: Text('Carteira'),
-              textColor: Colors.white,
-            ),
-          ),
-          espacamento(),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Color.fromRGBO(255, 119, 102, 10)),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  Widget _novo = Novo();
-                  return _novo;
-                },
-              ));
-            },
-            child: ListTile(
-              leading: Icon(
-                Icons.settings,
-                color: Colors.black,
-              ),
-              title: Text('Configuraçõs'),
-              textColor: Colors.white,
-            ),
-          ),
+          
+          
+          
+         
         ],
       ),
     );
   }
 }
 
-class PageBusca extends StatelessWidget {
-  const PageBusca({Key? key}) : super(key: key);
+
+class PageBusca extends StatefulWidget {
+  
+
+  @override
+  _PageBuscaState createState() => _PageBuscaState();
+}
+class _PageBuscaState extends State<PageBusca> {
+  String query = '';
+  late List<Remedio> remedios;
+  void initState() {
+    super.initState();
+
+    remedios = todosRemedios;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
+    return Scaffold(
+       body:Column(
+
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+           buildSearch(),
+           Expanded(
+              child: ListView.builder(
+                itemCount: remedios.length,
+                itemBuilder: (context, index) {
+                  final remedio = remedios[index];
+
+                  return buildBook(remedio);
+                },
+              ),
+            ),
+         
+          
+          
+          /*
           Card(
             child: ListTile(
                 leading: Image.network(
@@ -438,67 +385,63 @@ class PageBusca extends StatelessWidget {
                           content: Icon(Icons.add_task,
                               color: Color.fromARGB(255, 49, 159, 98))));
                     })),
-          ),
-          Card(
-            child: ListTile(
-                leading: Image.network(
-                    'https://araujo.vteximg.com.br/arquivos/ids/4154178-1000-1000/07898495608381.jpg'),
-                title: Text('Vitamina C'),
-                subtitle: Text(
-                    'Suplemento alimentar com 1g de vitamina c + 10 mg de zinco + 10 mcg de vitamina D'),
-                trailing: IconButton(
-                    icon: const Icon(
-                      Icons.add_shopping_cart_outlined,
-                      color: Colors.black,
-                    ),
-                    tooltip: 'adicionar ao carrinho de compras',
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Icon(Icons.add_task,
-                              color: Color.fromARGB(255, 49, 159, 98))));
-                    })),
-          ),
-          Card(
-            child: ListTile(
-                leading: Image.network(
-                    'https://araujo.vteximg.com.br/arquivos/ids/4154178-1000-1000/07898495608381.jpg'),
-                title: Text('Vitamina C'),
-                subtitle: Text(
-                    'Suplemento alimentar com 1g de vitamina c + 10 mg de zinco + 10 mcg de vitamina D'),
-                trailing: IconButton(
-                    icon: const Icon(
-                      Icons.add_shopping_cart_outlined,
-                      color: Colors.black,
-                    ),
-                    tooltip: 'adicionar ao carrinho de compras',
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Icon(Icons.add_task,
-                              color: Color.fromARGB(255, 49, 159, 98))));
-                    })),
-          ),
-          Card(
-            child: ListTile(
-                leading: Image.network(
-                    'https://araujo.vteximg.com.br/arquivos/ids/4154178-1000-1000/07898495608381.jpg'),
-                title: Text('Vitamina C'),
-                subtitle: Text(
-                    'Suplemento alimentar com 1g de vitamina c + 10 mg de zinco + 10 mcg de vitamina D'),
-                trailing: IconButton(
-                    icon: const Icon(
-                      Icons.add_shopping_cart_outlined,
-                      color: Colors.black,
-                    ),
-                    tooltip: 'adicionar ao carrinho de compras',
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Icon(Icons.add_task,
-                              color: Color.fromARGB(255, 49, 159, 98))));
-                    })),
-          ),
+          ),*/
         ],
       ),
     );
+  }
+  Widget buildBook(Remedio remedio) => ListTile(
+        leading: Image.network(
+          remedio.imagemRemedio,
+          fit: BoxFit.cover,
+          width: 60,
+          height: 60,
+        ),
+        title: Text(remedio.nomeRemedio),
+        subtitle: Text(remedio.descRemedio),
+        isThreeLine: true,
+        
+        trailing: IconButton(
+                    icon: const Icon(
+                      Icons.add_shopping_cart_outlined,
+                      
+                    ),
+                   
+                   // disabledColor: Colors.blue,
+                   // focusColor: Colors.blue,
+                   // hoverColor: Colors.blue,
+                    splashColor: Color.fromARGB(255, 49, 159, 98),
+                    //highlightColor: Colors.blue,
+
+                    tooltip: 'adicionar ao carrinho de compras',
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Icon(Icons.add_task,
+                              color: Color.fromARGB(255, 49, 159, 98))));
+                    }),
+                    
+                    
+      );
+  Widget buildSearch() => SearchWidget(
+        text: query,
+        hintText: 'Nome do remédio ou descrição',
+        onChanged: searchRemedio,
+      );
+      
+      void searchRemedio(String query) {
+    final remedios = todosRemedios.where((remedio) {
+      final titleLower = remedio.descRemedio.toLowerCase();
+      final authorLower = remedio.nomeRemedio.toLowerCase();
+      final searchLower = query.toLowerCase();
+
+      return titleLower.contains(searchLower) ||
+          authorLower.contains(searchLower);
+    }).toList();
+
+    setState(() {
+      this.query = query;
+      this.remedios = remedios;
+    });
   }
 }
 
