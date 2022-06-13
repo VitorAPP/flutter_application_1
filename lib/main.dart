@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
@@ -87,28 +88,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: IconButton(
-        //   icon: Icon(
-        //     Icons.location_pin,
-        //     color: Colors.white,
-        //   ),
-        //   tooltip: 'Local',
-        //   onPressed: null,
-        // ),
         backgroundColor: Color.fromRGBO(255, 119, 102, 10),
         title: Text('DrogaLive'),
-        actions: <Widget>[
-          /* IconButton(
-            icon: const Icon(Icons.qr_code),
-            tooltip: 'Show Snackbar',
-            onPressed: () {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(const SnackBar(content: Text('QR')));
-            },
-          ),*/
-        ],
+        actions: <Widget>[],
       ),
-      body: _currentPage,
+      body: SingleChildScrollView(
+        child: _currentPage,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
           _changeTab(index);
@@ -131,47 +117,6 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Color.fromRGBO(255, 119, 102, 10),
         unselectedItemColor: const Color.fromARGB(255, 214, 214, 214),
       ),
-      /*  drawer: Drawer(
-        child: Container(
-          margin: const EdgeInsets.only(top: 0.0),
-          
-          child: Column(
-            children: <Widget>[
-              UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
-            color: Color.fromRGBO(255, 119, 102, 10),
-          ),
-                
-                accountEmail: Text("xpto@mail.com"),
-                accountName: Text("Eri"),
-                currentAccountPicture: CircleAvatar(
-                  child: Text("ER"),
-                 
-                  
-                ),
-              ),
-              _navigationItemListTitle(pagePerfil, 0),
-              _navigationItemListTitle(pageBusca, 1),
-              _navigationItemListTitle(page3, 2),
-              _navigationItemListTitle(pageCarteira, 3),
-              //  _navigationItemListTitle(page4, 3),
-              SizedBox(height: 50),
-              Divider(),
-              SizedBox(height: 50),
-              Row(
-                children: [
-                  Expanded(flex: 2, child: Icon(Icons.output_outlined)),
-                  Expanded(
-                      flex: 9,
-                      child: Text('Sair',
-                          style: TextStyle(color: Colors.black, fontSize: 20.0),
-                          textAlign: TextAlign.left)),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),*/
     );
   }
 
@@ -239,93 +184,63 @@ class PagePerfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      // alignment: Alignment.topCenter,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.account_circle, size: 50),
-          Text('$pagePerfil', style: Theme.of(context).textTheme.headline6),
-          const Divider(
-            height: 20,
-            thickness: 5,
-            // indent: 9,
-            endIndent: 0,
-            color: Colors.black,
-          ),
-          espacamento(),
-          espacamento(),
-          butoesPerfil(
-              context: context,
-              iconeDePerfil: Icon(Icons.shopping_cart, color: Colors.black),
-              textoDoIncone: Text('Carrinho de Compras'),
-              x: 0),
-          espacamento(),
-          butoesPerfil(
-              context: context,
-              iconeDePerfil:
-                  Icon(Icons.delivery_dining_sharp, color: Colors.black),
-              textoDoIncone: Text('Acompanhar Pedido'),
-              x: 1),
-          espacamento(),
-          butoesPerfil(
-              context: context,
-              iconeDePerfil: Icon(Icons.chat_outlined, color: Colors.black),
-              textoDoIncone: Text('Chats'),
-              x: 2),
-          espacamento(),
-          butoesPerfil(
-              context: context,
-              iconeDePerfil: Icon(Icons.draw_outlined, color: Colors.black),
-              textoDoIncone: Text('Dados Pessoal'),
-              x: 3),
-          espacamento(),
-          butoesPerfil(
-              context: context,
-              iconeDePerfil: Icon(Icons.account_balance_wallet_outlined,
-                  color: Colors.black),
-              textoDoIncone: Text('Carteira'),
-              x: 4),
-          espacamento(),
-          butoesPerfil(
-              context: context,
-              iconeDePerfil: Icon(Icons.settings, color: Colors.black),
-              textoDoIncone: Text('Cofigurações'),
-              x: 5),
-          espacamento(),
-
-          // butoesPerfil(context: context, iconeDePerfil: Icon(Icons.shopping_cart, color: Colors.black), textoDoIncone: Text('Carrinho de Compras')),
-
-          /* Container(
-            padding: const EdgeInsets.only(left: 20),
-            child: Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text(
-                '',
-                style: Theme.of(context).textTheme.caption,
-                textAlign: TextAlign.start,
-              ),
+      child: Container(
+        alignment: Alignment.center,
+        margin: const EdgeInsets.symmetric(horizontal: 100),
+        padding: const EdgeInsets.only(top: 20),
+        child: Column(
+          children: [
+            Icon(Icons.account_circle, size: 50),
+            Text('$pagePerfil', style: Theme.of(context).textTheme.headline6),
+            const Divider(
+              height: 20,
+              thickness: 5,
+              // indent: 9,
+              endIndent: 0,
+              color: Colors.black,
             ),
-          ),*/
-
-          /* ElevatedButton(
-            
-            onPressed: () => changePage(1),
-            child: const Text('Voltar para principal'), 
-          ),*/
-
-          /*MaterialButton(
-            color: Color.fromRGBO(255, 119, 102, 10),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  Widget _novo = Novo();
-                  return _novo;
-                },
-              ));
-            },
-            child: ListTile(leading:Icon(Icons.moped_sharp, color: Colors.black,), title: Text('Acompanha pedido'),textColor: Colors.white, ),
-          ),*/
-        ],
+            espacamento(),
+            espacamento(),
+            butoesPerfil(
+                context: context,
+                iconeDePerfil: Icon(Icons.shopping_cart, color: Colors.black),
+                textoDoIncone: Text('Carrinho de Compras'),
+                x: 0),
+            espacamento(),
+            butoesPerfil(
+                context: context,
+                iconeDePerfil:
+                    Icon(Icons.delivery_dining_sharp, color: Colors.black),
+                textoDoIncone: Text('Acompanhar Pedido'),
+                x: 1),
+            espacamento(),
+            butoesPerfil(
+                context: context,
+                iconeDePerfil: Icon(Icons.chat_outlined, color: Colors.black),
+                textoDoIncone: Text('Chats'),
+                x: 2),
+            espacamento(),
+            butoesPerfil(
+                context: context,
+                iconeDePerfil: Icon(Icons.draw_outlined, color: Colors.black),
+                textoDoIncone: Text('Dados Pessoal'),
+                x: 3),
+            espacamento(),
+            butoesPerfil(
+                context: context,
+                iconeDePerfil: Icon(Icons.account_balance_wallet_outlined,
+                    color: Colors.black),
+                textoDoIncone: Text('Carteira'),
+                x: 4),
+            espacamento(),
+            butoesPerfil(
+                context: context,
+                iconeDePerfil: Icon(Icons.settings, color: Colors.black),
+                textoDoIncone: Text('Cofigurações'),
+                x: 5),
+            espacamento(),
+          ],
+        ),
       ),
     );
   }
@@ -414,7 +329,7 @@ class _PageBuscaState extends State<PageBusca> {
 
             tooltip: 'adicionar ao carrinho de compras',
             onPressed: () {
-             /* _addParaCarteira(
+              /* _addParaCarteira(
                   nome: widget.remedio.nomeRemedio,
                   valor: widget.remedio.valorRemedio,
                   imgR: widget.remedio.imagemRemedio,
