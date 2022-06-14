@@ -1,5 +1,5 @@
-import 'dart:convert';
-import 'dart:html';
+//import 'dart:convert';
+//import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -85,16 +85,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      
+      appBar: AppBar( 
         backgroundColor: Color.fromRGBO(255, 119, 102, 10),
         title: Text('DrogaLive'),
         actions: <Widget>[],
       ),
-      body: SingleChildScrollView(
-        child: _currentPage,
-      ),
+      body:  _currentPage,
+      
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
           _changeTab(index);
@@ -183,7 +184,7 @@ class PagePerfil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
       child: Container(
         alignment: Alignment.center,
         margin: const EdgeInsets.symmetric(horizontal: 100),
