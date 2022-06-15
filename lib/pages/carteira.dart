@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/novo.dart';
 
-
 class Carteira extends StatelessWidget {
   const Carteira({Key? key}) : super(key: key);
 
@@ -42,9 +41,6 @@ class Carteira extends StatelessWidget {
                 ),
               ),
             ),
-
-            
-
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   primary: Color.fromRGBO(255, 119, 102, 10)),
@@ -115,7 +111,7 @@ class Carteira extends StatelessWidget {
                   builder: (BuildContext context) {
                     Widget _novo = Novo();
                     return _novo;
-                   // return MyApp();
+                    // return MyApp();
                   },
                 ));
               },
@@ -124,7 +120,7 @@ class Carteira extends StatelessWidget {
                   Icons.pix_outlined,
                   color: Colors.black,
                 ),
-                title: Text('Pixx'),
+                title: Text('Pix'),
                 textColor: Colors.white,
               ),
             ),

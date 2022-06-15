@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/landing.dart';
 import 'package:flutter_application_1/pages/novo.dart';
-
 
 class DadosPessoal extends StatelessWidget {
   const DadosPessoal({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
         title: const Text('DadosPessoal'),
-        actions: <Widget>[
+        actions: const <Widget>[
           Icon(
             Icons.draw_outlined,
             size: 50,
@@ -52,7 +51,7 @@ class DadosPessoal extends StatelessWidget {
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
+                  primary: const Color.fromRGBO(255, 119, 102, 10)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
@@ -61,7 +60,7 @@ class DadosPessoal extends StatelessWidget {
                   },
                 ));
               },
-              child: ListTile(
+              child: const ListTile(
                 leading: Icon(
                   Icons.account_circle_outlined,
                   color: Colors.black,
@@ -83,7 +82,7 @@ class DadosPessoal extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
+                  primary: const Color.fromRGBO(255, 119, 102, 10)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
@@ -92,7 +91,7 @@ class DadosPessoal extends StatelessWidget {
                   },
                 ));
               },
-              child: ListTile(
+              child: const ListTile(
                 leading: Icon(
                   Icons.home_outlined,
                   color: Colors.black,
@@ -114,17 +113,17 @@ class DadosPessoal extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
+                  primary: const Color.fromRGBO(255, 119, 102, 10)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
                     Widget _novo = Novo();
                     return _novo;
-                   // return MyApp();
+                    // return MyApp();
                   },
                 ));
               },
-              child: ListTile(
+              child: const ListTile(
                 leading: Icon(
                   Icons.security_outlined,
                   color: Colors.black,
@@ -133,7 +132,7 @@ class DadosPessoal extends StatelessWidget {
                 textColor: Colors.white,
               ),
             ),
-             Container(
+            Container(
               padding: const EdgeInsets.only(left: 20),
               child: Align(
                 alignment: AlignmentDirectional.centerStart,
@@ -144,27 +143,26 @@ class DadosPessoal extends StatelessWidget {
                 ),
               ),
             ),
-             const Divider(
+            const Divider(
               height: 20,
               thickness: 3,
               // indent: 9,
               endIndent: 0,
               color: Colors.black,
             ),
-            
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
+                  primary: const Color.fromRGBO(255, 119, 102, 10)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _novo = Novo();
-                    return _novo;
-                   // return MyApp();
+                    Widget _landing = Landing();
+                    return _landing;
+                    // return MyApp();
                   },
                 ));
               },
-              child: ListTile(
+              child: const ListTile(
                 leading: Icon(
                   Icons.dangerous_outlined,
                   color: Colors.black,

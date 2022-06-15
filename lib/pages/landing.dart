@@ -20,10 +20,10 @@ class _Landing extends State<Landing> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
         elevation: 0,
       ),
-      backgroundColor: Color(0xFFffffff),
+      backgroundColor: const Color(0xFFffffff),
       body: Container(
         padding: const EdgeInsets.only(left: 40, right: 40),
         child: Form(
@@ -34,16 +34,16 @@ class _Landing extends State<Landing> {
               SizedBox(
                 height: height * 0.04,
               ),
-              Text(
+              const Text(
                 'Bem-vindo',
                 style: TextStyle(fontSize: 30, color: Color(0xFF363F93)),
               ),
-              Text(
+              const Text(
                 'ao DrogaLive!',
                 style: TextStyle(fontSize: 30, color: Color(0xFF363f93)),
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: "Enter your name"),
+                decoration: const InputDecoration(labelText: "Enter your name"),
                 validator: (value) {
                   if (value!.isEmpty ||
                       !RegExp(r'^[a-z A-Z]+$').hasMatch(value!)) {
@@ -57,7 +57,8 @@ class _Landing extends State<Landing> {
                 height: height * 0.04,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: "Enter your number"),
+                decoration:
+                    const InputDecoration(labelText: "Enter your number"),
                 validator: (value) {
                   if (value!.isEmpty ||
                       !RegExp(r'^\s*(\d{2}|\d{0})[-. ]?(\d{5}|\d{4})[-. ]?(\d{4})[-. ]?\s*$')
@@ -72,7 +73,8 @@ class _Landing extends State<Landing> {
                 height: height * 0.05,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: "Enter your email"),
+                decoration:
+                    const InputDecoration(labelText: "Enter your email"),
                 validator: (value) {
                   if (value!.isEmpty ||
                       !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2-4}$')
@@ -98,7 +100,7 @@ class _Landing extends State<Landing> {
                     style: TextStyle(fontSize: 22, color: Colors.blue[900]),
                   ),
                   NeumorphicButton(
-                    margin: EdgeInsets.only(top: 12),
+                    margin: const EdgeInsets.only(top: 12),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         final snackBar =
@@ -106,7 +108,7 @@ class _Landing extends State<Landing> {
                         _scaffoldKey.currentState!.showSnackBar(snackBar);
                       }
                     },
-                    style: NeumorphicStyle(
+                    style: const NeumorphicStyle(
                       shape: NeumorphicShape.flat,
                       boxShape: NeumorphicBoxShape.circle(),
                     ),
@@ -116,7 +118,15 @@ class _Landing extends State<Landing> {
               SizedBox(
                 height: height * 0.1,
               ),
-              Row(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  NeumorphicButton(
+                    margin: const EdgeInsets.only(top: 12),
+                    // onPressed: ,
+                  )
+                ],
+              ),
             ],
           ),
         ),

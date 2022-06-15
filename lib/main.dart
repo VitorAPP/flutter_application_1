@@ -1,5 +1,5 @@
-import 'dart:convert';
-import 'dart:html';
+//import 'dart:convert';
+//import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +13,6 @@ import 'package:flutter_application_1/pages/pedido.dart';
 import 'package:flutter_application_1/pages/dadosPessoa.dart';
 import 'package:flutter_application_1/widget/search_widget.dart';
 import 'package:flutter_application_1/dado/remedio_dado.dart';
-import 'package:flutter_application_1/model/remedio.dart';
-import 'package:flutter_application_1/model/carteira_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _pagePerfil = PagePerfil(changePage: _changeTab);
     // _page1 = const Page1();
-    _pageBusca = PageBusca();
+    _pageBusca = PageBusca(changePage: _changeTab);
     _page3 = Page3(changePage: _changeTab);
     _novo = const Novo();
 
@@ -92,9 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('DrogaLive'),
         actions: <Widget>[],
       ),
-      body: SingleChildScrollView(
-        child: _currentPage,
-      ),
+      body: _currentPage,
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
           _changeTab(index);
@@ -183,7 +179,7 @@ class PagePerfil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
       child: Container(
         alignment: Alignment.center,
         margin: const EdgeInsets.symmetric(horizontal: 100),
@@ -223,7 +219,7 @@ class PagePerfil extends StatelessWidget {
             butoesPerfil(
                 context: context,
                 iconeDePerfil: Icon(Icons.draw_outlined, color: Colors.black),
-                textoDoIncone: Text('Dados Pessoal'),
+                textoDoIncone: Text('Dados Pessoais'),
                 x: 3),
             espacamento(),
             butoesPerfil(
@@ -247,8 +243,8 @@ class PagePerfil extends StatelessWidget {
 }
 
 class PageBusca extends StatefulWidget {
-  //Remedio remedio;
-  //PageBusca({required this.remedio});
+  final void Function(int) changePage;
+  const PageBusca({Key? key, required this.changePage}) : super(key: key);
   @override
   _PageBuscaState createState() => _PageBuscaState();
 }
@@ -280,27 +276,6 @@ class _PageBuscaState extends State<PageBusca> {
               },
             ),
           ),
-
-          /*
-          Card(
-            child: ListTile(
-                leading: Image.network(
-                    'https://araujo.vteximg.com.br/arquivos/ids/4154178-1000-1000/07898495608381.jpg'),
-                title: Text('Vitamina C'),
-                subtitle: Text(
-                    'Suplemento alimentar com 1g de vitamina c + 10 mg de zinco + 10 mcg de vitamina D'),
-                trailing: IconButton(
-                    icon: const Icon(
-                      Icons.add_shopping_cart_outlined,
-                      color: Colors.black,
-                    ),
-                    tooltip: 'adicionar ao carrinho de compras',
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Icon(Icons.add_task,
-                              color: Color.fromARGB(255, 49, 159, 98))));
-                    })),
-          ),*/
         ],
       ),
     );
@@ -329,12 +304,12 @@ class _PageBuscaState extends State<PageBusca> {
 
             tooltip: 'adicionar ao carrinho de compras',
             onPressed: () {
-              /* _addParaCarteira(
-                  nome: widget.remedio.nomeRemedio,
-                  valor: widget.remedio.valorRemedio,
-                  imgR: widget.remedio.imagemRemedio,
+              _addParaCarteira(
+                  nome: remedio.nomeRemedio,
+                  valor: remedio.valorRemedio,
+                  imgR: remedio.imagemRemedio,
                   qtdeRemedio: 1);
-              */
+
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   content: Icon(Icons.add_task,
                       color: Color.fromARGB(255, 49, 159, 98))));
@@ -413,140 +388,3 @@ class Page3 extends StatelessWidget {
     );
   }
 }
-
-/*
-class PageCarteira extends StatelessWidget {
-  const PageCarteira({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 119, 102, 10),
-        title: const Text('Carteira'),
-        actions: <Widget>[
-          Icon(
-            Icons.account_balance_wallet_outlined,
-            size: 50,
-            color: Colors.black,
-          ),
-        ],
-      ),
-      body: Align(
-        alignment: Alignment.topCenter,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Divider(
-              height: 20,
-              thickness: 5,
-              // indent: 9,
-              endIndent: 0,
-              color: Colors.white,
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 20),
-              child: Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: Text(
-                  '',
-                  style: Theme.of(context).textTheme.caption,
-                  textAlign: TextAlign.start,
-                ),
-              ),
-            ),
-
-            /* ElevatedButton(
-            
-            onPressed: () => changePage(1),
-            child: const Text('Voltar para principal'), 
-          ),*/
-
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute<void>(
-                  builder: (BuildContext context) {
-                    Widget _novo = Novo();
-                    return _novo;
-                  },
-                ));
-              },
-              child: ListTile(
-                leading: Icon(
-                  Icons.add_card_rounded,
-                  color: Colors.black,
-                ),
-                title: Text('Cartão de credito'),
-                textColor: Colors.white,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 20),
-              child: Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: Text(
-                  '',
-                  style: Theme.of(context).textTheme.caption,
-                  textAlign: TextAlign.start,
-                ),
-              ),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute<void>(
-                  builder: (BuildContext context) {
-                    Widget _carteira = Carteira();
-                    return _carteira;
-                  },
-                ));
-              },
-              child: ListTile(
-                leading: Icon(
-                  Icons.monetization_on_outlined,
-                  color: Colors.black,
-                ),
-                title: Text('Dinheiro'),
-                textColor: Colors.white,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 20),
-              child: Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: Text(
-                  '',
-                  style: Theme.of(context).textTheme.caption,
-                  textAlign: TextAlign.start,
-                ),
-              ),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute<void>(
-                  builder: (BuildContext context) {
-                    return MyApp();
-                  },
-                ));
-              },
-              child: ListTile(
-                leading: Icon(
-                  Icons.pix_outlined,
-                  color: Colors.black,
-                ),
-                title: Text('Pix'),
-                textColor: Colors.white,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-*/
