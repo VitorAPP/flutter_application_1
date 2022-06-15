@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/landing.dart';
 import 'package:flutter_application_1/pages/novo.dart';
+import 'package:flutter_application_1/pages/conta.dart';
+import 'package:flutter_application_1/pages/endereco.dart';
+import 'package:flutter_application_1/pages/privacidadeSeguranca.dart';
 
 class DadosPessoal extends StatelessWidget {
   const DadosPessoal({Key? key}) : super(key: key);
@@ -19,8 +22,10 @@ class DadosPessoal extends StatelessWidget {
           ),
         ],
       ),
-      body: Align(
+      body: Container(
         alignment: Alignment.topCenter,
+        margin: const EdgeInsets.symmetric(horizontal: 100),
+        padding: const EdgeInsets.only(top: 20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -55,8 +60,8 @@ class DadosPessoal extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _novo = Novo();
-                    return _novo;
+                    Widget _conta = Conta();
+                    return _conta;
                   },
                 ));
               },
@@ -86,8 +91,8 @@ class DadosPessoal extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _carteira = DadosPessoal();
-                    return _carteira;
+                    Widget _endereco = Endereco();
+                    return _endereco;
                   },
                 ));
               },
@@ -117,8 +122,8 @@ class DadosPessoal extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _novo = Novo();
-                    return _novo;
+                    Widget _privacidade = Privacidade();
+                    return _privacidade;
                     // return MyApp();
                   },
                 ));
