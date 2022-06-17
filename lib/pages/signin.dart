@@ -1,15 +1,12 @@
-import 'dart:ui';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
 
-class Landing extends StatefulWidget {
-  const Landing({Key? key}) : super(key: key);
-
+class SignIn extends StatefulWidget {
   @override
-  _Landing createState() => _Landing();
+  _State createState() => _State();
 }
 
-class _Landing extends State<Landing> {
+class _State extends State<SignIn> {
   final formKey = GlobalKey<FormState>();
   String name = "";
 
@@ -36,18 +33,19 @@ class _Landing extends State<Landing> {
                 height: height * 0.04,
               ),
               const Text(
-                'Bem-vindo ao DrogaLive!',
+                'Bem-vindo de volta!',
                 style: TextStyle(fontSize: 30),
               ),
               SizedBox(
                 height: height * 0.05,
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: "Insira seu nome"),
+                decoration:
+                    const InputDecoration(labelText: "Insira seu e-mail"),
                 validator: (value) {
                   if (value!.isEmpty ||
                       !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
-                    return "Insira um nome válido";
+                    return "Insira um e-mail válido";
                   } else {
                     return null;
                   }

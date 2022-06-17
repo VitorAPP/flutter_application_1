@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/notificacao.dart';
 import 'package:flutter_application_1/pages/novo.dart';
-import 'package:flutter_application_1/pages/notificacao.dart';
+import 'package:flutter_application_1/pages/versao.dart';
 
 class Config extends StatelessWidget {
   const Config({Key? key}) : super(key: key);
@@ -80,8 +80,8 @@ class Config extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _novo = Novo();
-                    return _novo;
+                    Widget _versao = Versao();
+                    return _versao;
                   },
                 ));
               },

@@ -13,7 +13,7 @@ class DadosPessoal extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
-        title: const Text('DadosPessoal'),
+        title: const Text('Dados pessoais'),
         actions: const <Widget>[
           Icon(
             Icons.draw_outlined,
@@ -101,7 +101,7 @@ class DadosPessoal extends StatelessWidget {
                   Icons.home_outlined,
                   color: Colors.black,
                 ),
-                title: Text('Adicionar Endereço'),
+                title: Text('Adicionar endereço'),
                 textColor: Colors.black,
               ),
             ),

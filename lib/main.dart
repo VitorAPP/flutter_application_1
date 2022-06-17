@@ -224,7 +224,7 @@ class PagePerfil extends StatelessWidget {
                 context: context,
                 iconeDePerfil:
                     const Icon(Icons.draw_outlined, color: Colors.black),
-                textoDoIncone: const Text('Dados Pessoais'),
+                textoDoIncone: const Text('Dados pessoais'),
                 x: 3),
             espacamento(),
             butoesPerfil(
