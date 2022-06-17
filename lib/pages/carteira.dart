@@ -8,9 +8,9 @@ class Carteira extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
         title: const Text('Carteira'),
-        actions: <Widget>[
+        actions: const <Widget>[
           Icon(
             Icons.account_balance_wallet_outlined,
             size: 50,
@@ -28,7 +28,7 @@ class Carteira extends StatelessWidget {
               thickness: 5,
               // indent: 9,
               endIndent: 0,
-              color: Colors.white,
+              color: Colors.transparent,
             ),
             Container(
               padding: const EdgeInsets.only(left: 20),
@@ -43,7 +43,7 @@ class Carteira extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
+                  primary: const Color.fromARGB(246, 214, 214, 214)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
@@ -52,13 +52,13 @@ class Carteira extends StatelessWidget {
                   },
                 ));
               },
-              child: ListTile(
+              child: const ListTile(
                 leading: Icon(
                   Icons.add_card_rounded,
                   color: Colors.black,
                 ),
                 title: Text('Cartão de credito'),
-                textColor: Colors.white,
+                textColor: Colors.black,
               ),
             ),
             Container(
@@ -74,7 +74,7 @@ class Carteira extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
+                  primary: const Color.fromARGB(246, 214, 214, 214)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
@@ -83,13 +83,13 @@ class Carteira extends StatelessWidget {
                   },
                 ));
               },
-              child: ListTile(
+              child: const ListTile(
                 leading: Icon(
                   Icons.monetization_on_outlined,
                   color: Colors.black,
                 ),
                 title: Text('Dinheiro'),
-                textColor: Colors.white,
+                textColor: Colors.black,
               ),
             ),
             Container(
@@ -105,7 +105,7 @@ class Carteira extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(255, 119, 102, 10)),
+                  primary: const Color.fromARGB(246, 214, 214, 214)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
@@ -115,13 +115,13 @@ class Carteira extends StatelessWidget {
                   },
                 ));
               },
-              child: ListTile(
+              child: const ListTile(
                 leading: Icon(
                   Icons.pix_outlined,
                   color: Colors.black,
                 ),
                 title: Text('Pix'),
-                textColor: Colors.white,
+                textColor: Colors.black,
               ),
             ),
           ],

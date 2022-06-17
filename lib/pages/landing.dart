@@ -35,12 +35,11 @@ class _Landing extends State<Landing> {
                 height: height * 0.04,
               ),
               const Text(
-                'Bem-vindo',
-                style: TextStyle(fontSize: 30, color: Color(0xFF363F93)),
+                'Bem-vindo ao DrogaLive!',
+                style: TextStyle(fontSize: 30),
               ),
-              const Text(
-                'ao DrogaLive!',
-                style: TextStyle(fontSize: 30, color: Color(0xFF363f93)),
+              SizedBox(
+                height: height * 0.05,
               ),
               TextFormField(
                 decoration: const InputDecoration(labelText: "Enter your name"),
@@ -111,6 +110,10 @@ class _Landing extends State<Landing> {
                     style: const NeumorphicStyle(
                       shape: NeumorphicShape.flat,
                       boxShape: NeumorphicBoxShape.circle(),
+                      color: Colors.blue,
+                    ),
+                    child: NeumorphicIcon(
+                      Icons.arrow_forward_sharp,
                     ),
                   )
                 ],

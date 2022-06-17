@@ -8,6 +8,7 @@ import 'package:flutter_application_1/model/remedio.dart';
 import 'package:flutter_application_1/pages/carteira.dart';
 import 'package:flutter_application_1/pages/four.dart';
 import 'package:flutter_application_1/pages/novo.dart';
+import 'package:flutter_application_1/pages/config.dart';
 import 'package:flutter_application_1/pages/compra.dart';
 import 'package:flutter_application_1/pages/pedido.dart';
 import 'package:flutter_application_1/pages/dadosPessoa.dart';
@@ -86,9 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 119, 102, 10),
-        title: Text('DrogaLive'),
-        actions: <Widget>[],
+        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        title: const Text('DrogaLive'),
+        actions: const <Widget>[],
       ),
       body: _currentPage,
       bottomNavigationBar: BottomNavigationBar(
@@ -110,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.home),
           ),
         ],
-        selectedItemColor: Color.fromRGBO(255, 119, 102, 10),
+        selectedItemColor: const Color.fromRGBO(255, 119, 102, 10),
         unselectedItemColor: const Color.fromARGB(255, 214, 214, 214),
       ),
     );
@@ -119,8 +120,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _navigationItemListTitle(String title, int index) {
     return ListTile(
       title: Text(
-        '$title',
-        style: TextStyle(color: Color.fromARGB(255, 4, 32, 56), fontSize: 20.0),
+        title,
+        style: const TextStyle(
+            color: Color.fromARGB(255, 4, 32, 56), fontSize: 20.0),
       ),
       onTap: () {
         Navigator.pop(context);
@@ -140,18 +142,18 @@ class PagePerfil extends StatelessWidget {
       required Text textoDoIncone,
       required int x}) {
     return ElevatedButton(
-      style:
-          ElevatedButton.styleFrom(primary: Color.fromRGBO(255, 119, 102, 10)),
+      style: ElevatedButton.styleFrom(
+          primary: const Color.fromRGBO(255, 119, 102, 10)),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute<void>(
           builder: (BuildContext context) {
             var cadaum = [
-              Compra(),
-              Pedido(),
-              Novo(),
-              DadosPessoal(),
-              Carteira(),
-              Novo()
+              const Compra(),
+              const Pedido(),
+              const Novo(),
+              const DadosPessoal(),
+              const Carteira(),
+              const Config()
             ];
             return cadaum[x];
           },
@@ -167,7 +169,7 @@ class PagePerfil extends StatelessWidget {
   Container espacamento() {
     return Container(
       padding: const EdgeInsets.only(left: 20),
-      child: Align(
+      child: const Align(
         alignment: AlignmentDirectional.centerStart,
         child: Text(
           '',
@@ -186,8 +188,8 @@ class PagePerfil extends StatelessWidget {
         padding: const EdgeInsets.only(top: 20),
         child: Column(
           children: [
-            Icon(Icons.account_circle, size: 50),
-            Text('$pagePerfil', style: Theme.of(context).textTheme.headline6),
+            const Icon(Icons.account_circle, size: 50),
+            Text(pagePerfil, style: Theme.of(context).textTheme.headline6),
             const Divider(
               height: 20,
               thickness: 5,
@@ -199,40 +201,43 @@ class PagePerfil extends StatelessWidget {
             espacamento(),
             butoesPerfil(
                 context: context,
-                iconeDePerfil: Icon(Icons.shopping_cart, color: Colors.black),
-                textoDoIncone: Text('Carrinho de Compras'),
+                iconeDePerfil:
+                    const Icon(Icons.shopping_cart, color: Colors.black),
+                textoDoIncone: const Text('Carrinho de Compras'),
                 x: 0),
             espacamento(),
             butoesPerfil(
                 context: context,
-                iconeDePerfil:
-                    Icon(Icons.delivery_dining_sharp, color: Colors.black),
-                textoDoIncone: Text('Acompanhar Pedido'),
+                iconeDePerfil: const Icon(Icons.delivery_dining_sharp,
+                    color: Colors.black),
+                textoDoIncone: const Text('Acompanhar Pedido'),
                 x: 1),
             espacamento(),
             butoesPerfil(
                 context: context,
-                iconeDePerfil: Icon(Icons.chat_outlined, color: Colors.black),
-                textoDoIncone: Text('Chats'),
+                iconeDePerfil:
+                    const Icon(Icons.chat_outlined, color: Colors.black),
+                textoDoIncone: const Text('Chats'),
                 x: 2),
             espacamento(),
             butoesPerfil(
                 context: context,
-                iconeDePerfil: Icon(Icons.draw_outlined, color: Colors.black),
-                textoDoIncone: Text('Dados Pessoais'),
+                iconeDePerfil:
+                    const Icon(Icons.draw_outlined, color: Colors.black),
+                textoDoIncone: const Text('Dados Pessoais'),
                 x: 3),
             espacamento(),
             butoesPerfil(
                 context: context,
-                iconeDePerfil: Icon(Icons.account_balance_wallet_outlined,
+                iconeDePerfil: const Icon(Icons.account_balance_wallet_outlined,
                     color: Colors.black),
-                textoDoIncone: Text('Carteira'),
+                textoDoIncone: const Text('Carteira'),
                 x: 4),
             espacamento(),
             butoesPerfil(
                 context: context,
-                iconeDePerfil: Icon(Icons.settings, color: Colors.black),
-                textoDoIncone: Text('Cofigurações'),
+                iconeDePerfil: const Icon(Icons.settings, color: Colors.black),
+                textoDoIncone: const Text('Cofigurações'),
                 x: 5),
             espacamento(),
           ],
@@ -299,7 +304,7 @@ class _PageBuscaState extends State<PageBusca> {
             // disabledColor: Colors.blue,
             // focusColor: Colors.blue,
             // hoverColor: Colors.blue,
-            splashColor: Color.fromARGB(255, 49, 159, 98),
+            splashColor: const Color.fromARGB(255, 49, 159, 98),
             //highlightColor: Colors.blue,
 
             tooltip: 'adicionar ao carrinho de compras',
@@ -366,7 +371,7 @@ class Page3 extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('$page3', style: Theme.of(context).textTheme.headline6),
+          Text(page3, style: Theme.of(context).textTheme.headline6),
           ElevatedButton(
             onPressed: () => changePage(1),
             child: const Text('Voltar para principal'),
@@ -376,7 +381,7 @@ class Page3 extends StatelessWidget {
             onPressed: () {
               Navigator.push(context, MaterialPageRoute<void>(
                 builder: (BuildContext context) {
-                  Widget _novo = Novo();
+                  Widget _novo = const Novo();
                   return _novo;
                 },
               ));

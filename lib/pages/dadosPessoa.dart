@@ -34,7 +34,7 @@ class DadosPessoal extends StatelessWidget {
               thickness: 5,
               // indent: 9,
               endIndent: 0,
-              color: Colors.white,
+              color: Colors.black,
             ),
             Container(
               padding: const EdgeInsets.only(left: 20),
@@ -56,7 +56,7 @@ class DadosPessoal extends StatelessWidget {
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: const Color.fromRGBO(255, 119, 102, 10)),
+                  primary: Color.fromARGB(246, 214, 214, 214)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
@@ -70,8 +70,8 @@ class DadosPessoal extends StatelessWidget {
                   Icons.account_circle_outlined,
                   color: Colors.black,
                 ),
-                title: Text('Editar dados Pessoais'),
-                textColor: Colors.white,
+                title: Text('Editar dados pessoais'),
+                textColor: Colors.black,
               ),
             ),
             Container(
@@ -87,7 +87,7 @@ class DadosPessoal extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: const Color.fromRGBO(255, 119, 102, 10)),
+                  primary: Color.fromARGB(246, 214, 214, 214)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
@@ -102,7 +102,7 @@ class DadosPessoal extends StatelessWidget {
                   color: Colors.black,
                 ),
                 title: Text('Adicionar Endereço'),
-                textColor: Colors.white,
+                textColor: Colors.black,
               ),
             ),
             Container(
@@ -118,7 +118,7 @@ class DadosPessoal extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: const Color.fromRGBO(255, 119, 102, 10)),
+                  primary: const Color.fromARGB(246, 214, 214, 214)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
@@ -134,7 +134,7 @@ class DadosPessoal extends StatelessWidget {
                   color: Colors.black,
                 ),
                 title: Text('Privacidade e Segurança'),
-                textColor: Colors.white,
+                textColor: Colors.black,
               ),
             ),
             Container(
