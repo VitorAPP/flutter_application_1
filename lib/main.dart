@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _pagePerfil = PagePerfil(changePage: _changeTab);
     // _page1 = const Page1();
-    _pageBusca = PageBusca(changePage: _changeTab);
+    _pageBusca = PageBusca();
     _page3 = Page3(changePage: _changeTab);
     _novo = const Novo();
 
@@ -248,8 +248,8 @@ class PagePerfil extends StatelessWidget {
 }
 
 class PageBusca extends StatefulWidget {
-  final void Function(int) changePage;
-  const PageBusca({Key? key, required this.changePage}) : super(key: key);
+  //final void Function(int) changePage;
+ // const PageBusca({Key? key, required this.changePage}) : super(key: key);
   @override
   _PageBuscaState createState() => _PageBuscaState();
 }
@@ -287,14 +287,14 @@ class _PageBuscaState extends State<PageBusca> {
   }
 
   Widget buildBook(Remedio remedio) => ListTile(
-        leading: Image.network(
+        leading: Image.asset(
           remedio.imagemRemedio,
           fit: BoxFit.cover,
           width: 60,
           height: 60,
         ),
-        title: Text(remedio.nomeRemedio),
-        subtitle: Text(remedio.descRemedio),
+        title: Text(remedio.nomeRemedio) ,
+        subtitle: Text("\R\$${remedio.valorRemedio}\ ${remedio.descRemedio}"),
         isThreeLine: true,
         trailing: IconButton(
             icon: const Icon(
@@ -348,14 +348,14 @@ class _PageBuscaState extends State<PageBusca> {
     required String imgR,
     required qtdeRemedio,
   }) {
-    final addRemedio = CarteiraModel(
+    final addRemedio = CarteiraModels(
       nome: nome,
       valor: valor,
       imgR: imgR,
       qtdeRemedio: qtdeRemedio,
     );
     setState(() {
-      carteiraModel.add(addRemedio);
+      carteiraModels.add(addRemedio);
     });
   }
 }

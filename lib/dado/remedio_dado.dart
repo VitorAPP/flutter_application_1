@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_application_1/model/remedio.dart';
 void addParaCarteira() {}
  final todosRemedios = <Remedio>[
@@ -5,58 +7,55 @@ void addParaCarteira() {}
     id: 1,
     nomeRemedio: "Vitamina C ",
     descRemedio: " É usado para prevenir e tratar o escorbuto ",
-    imagemRemedio:
-        'https://araujo.vteximg.com.br/arquivos/ids/4154178-1000-1000/07898495608381.jpg',
-    valorRemedio: 10,
+    imagemRemedio:"assets/images/vitc.png",
+        
+    valorRemedio: 14,
   ),
+  
   Remedio(
     id: 2,
     nomeRemedio: "Cetoconazol ",
     descRemedio: "É um medicamento antiandrogênico e antifúngico usado para tratar várias infecções fúngicas ",
-    imagemRemedio:
-        'https://www.drogariaminasbrasil.com.br/media/product/420/cetoconazol-2-creme-30-g-generico-medley-8bf.jpg',
-    valorRemedio: 10,
+    imagemRemedio:'assets/images/cetoconazol.png',
+    valorRemedio: 30,
   ),
+  
   Remedio(
     id: 3,
     nomeRemedio: "Dipirona ",
     descRemedio: "Apaziguador de espasmos e apaziguador de febre que também tem efeitos anti-inflamatórios ",
-    imagemRemedio:
-        'https://cdn-bifarma3.stoom.com.br/fotos/1581961485593.jpg',
-    valorRemedio: 10,
+    imagemRemedio:"assets/images/dipirona.png",
+     valorRemedio: 9.99,
   ),
   Remedio(
     id: 4,
     nomeRemedio: "Ibuprofeno ",
     descRemedio: "Princípio ativo que age contra inflamações não tão intensas",
-    imagemRemedio:
-        'https://www.drogariaminasbrasil.com.br/media/product/2c9/ibuprofeno-50mg-suspensao-gotas-30ml-generico-geolab-e60.jpg',
-    valorRemedio: 10,
+    imagemRemedio:"assets/images/ibuprofeno.png",
+    valorRemedio: 14.45,
   ),
   Remedio(
     id: 5,
     nomeRemedio: "Óleo mineral ",
     descRemedio: "Indicado como laxante no tratamento de prisão do ventre",
-    imagemRemedio:
-        'https://www.drogariaminasbrasil.com.br/media/product/30f/oleo-mineral-100ml-48c.jpg',
+    imagemRemedio:"assets/images/oleoMineral.png",
     valorRemedio: 10,
   ),
   Remedio(
     id: 6,
     nomeRemedio: "Biotina ",
     descRemedio: "É um nutriente que age na formação e manutenção da pele e dos cabelos",
-    imagemRemedio:
-        'https://io.convertiez.com.br/m/drogal/shop/products/images/10001429/medium/biotina-30mcg-60-capsulas_48395.png',
+    imagemRemedio:"assets/images/biotina.png",
     valorRemedio: 10,
   ),
   Remedio(
     id: 7,
     nomeRemedio: "Danazol ",
     descRemedio: "Tratamento de endometriose, doença fibrocística da mama, angioedema hereditário e outras condições ",
-    imagemRemedio:
-        'https://5.imimg.com/data5/SELLER/Default/2020/9/KY/PY/KY/101315720/hjederm7tttmmmemcage-500x500.jpg',
+    imagemRemedio:"assets/images/danazol.png",
     valorRemedio: 10,
   ),
+  /*
   Remedio(
     id: 8,
     nomeRemedio: "Olanzapina ",
@@ -64,5 +63,5 @@ void addParaCarteira() {}
     imagemRemedio:
         'data:image/jpeg;base64,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',
     valorRemedio: 10,
-  ),
+  ),*/
 ];
