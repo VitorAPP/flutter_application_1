@@ -249,7 +249,7 @@ class PagePerfil extends StatelessWidget {
 
 class PageBusca extends StatefulWidget {
   //final void Function(int) changePage;
- // const PageBusca({Key? key, required this.changePage}) : super(key: key);
+  // const PageBusca({Key? key, required this.changePage}) : super(key: key);
   @override
   _PageBuscaState createState() => _PageBuscaState();
 }
@@ -293,7 +293,7 @@ class _PageBuscaState extends State<PageBusca> {
           width: 60,
           height: 60,
         ),
-        title: Text(remedio.nomeRemedio) ,
+        title: Text(remedio.nomeRemedio),
         subtitle: Text("\R\$${remedio.valorRemedio}\ ${remedio.descRemedio}"),
         isThreeLine: true,
         trailing: IconButton(
@@ -316,6 +316,7 @@ class _PageBuscaState extends State<PageBusca> {
                   qtdeRemedio: 1);
 
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  duration: Duration(milliseconds: 600),
                   content: Icon(Icons.add_task,
                       color: Color.fromARGB(255, 49, 159, 98))));
             }),

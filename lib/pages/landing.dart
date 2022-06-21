@@ -134,11 +134,10 @@ class _Landing extends State<Landing> {
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute<void>(
                           builder: (BuildContext context) {
-                        Widget _novo = SignIn();
-                        return _novo;
+                        return SignIn();
                       }));
                     },
-                    child: Text("Já tem conta?"),
+                    child: const Text("Já tem conta?"),
                   )
                 ],
               ),
