@@ -11,10 +11,10 @@ class Compra extends StatefulWidget {
 }
 
 class _CompraState extends State<Compra> {
-  Compra cliente = Compra();
+  Compra cliente = const Compra();
   static const values = <String>['Dinheiro', 'Cartão', 'Pix'];
   String selectedValue = values.first;
-  final selectedColor = Color.fromRGBO(255, 119, 102, 10);
+  final selectedColor = const Color.fromRGBO(255, 119, 102, 10);
   final unselectedColor = Colors.black;
   int _counter = 0;
 
@@ -57,6 +57,7 @@ class _CompraState extends State<Compra> {
         ],
       ),
       body: Center(
+          child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -73,7 +74,7 @@ class _CompraState extends State<Compra> {
                   ])
           ],
         ),
-      ),
+      )),
     );
   }
 
@@ -81,7 +82,7 @@ class _CompraState extends State<Compra> {
   buildRadios(width, height) {
     return Container(
       width: width,
-      height: height / 7,
+      height: height / 6,
       child: Column(
         children: <Widget>[
           Row(
@@ -89,10 +90,10 @@ class _CompraState extends State<Compra> {
             children: <Widget>[
               Expanded(
                   child: Container(
-                      alignment: Alignment.center,
                       width: MediaQuery.of(context).size.width * (1 / 3),
                       child: Row(
                         children: [
+                          SizedBox(width: width / 10),
                           Radio(
                             activeColor: selectedColor,
                             value: 1,
@@ -119,6 +120,7 @@ class _CompraState extends State<Compra> {
                       width: MediaQuery.of(context).size.width * (1 / 3),
                       child: Row(
                         children: [
+                          SizedBox(width: width / 10),
                           Radio(
                             activeColor: selectedColor,
                             value: 2,
@@ -145,6 +147,7 @@ class _CompraState extends State<Compra> {
                       width: MediaQuery.of(context).size.width * (1 / 3),
                       child: Row(
                         children: [
+                          SizedBox(width: width / 10),
                           Radio(
                             activeColor: selectedColor,
                             value: 3,
@@ -167,6 +170,7 @@ class _CompraState extends State<Compra> {
                   flex: 1),
             ],
           ),
+          SizedBox(height: height / 15),
           materialButton(width, height)
         ],
       ),
