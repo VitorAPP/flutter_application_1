@@ -21,7 +21,7 @@ class _PedidoState extends State<Pedido> {
     return SafeArea(
       child: Scaffold(
        appBar: AppBar(
-          backgroundColor: Color.fromRGBO(255, 119, 102, 10),
+          backgroundColor: Colors.pink.shade900,
           title: const Text('Pedido'),
           actions: <Widget>[
             Icon(
@@ -44,7 +44,7 @@ class _PedidoState extends State<Pedido> {
                     activeDividerStrokeWidth: 12,
                     activeTrackColor: Colors.green,
                     inactiveDividerColor: Color.fromARGB(202, 207, 216, 220),
-                    thumbColor:Color.fromRGBO(255, 119, 102, 10),
+                    thumbColor: Colors.pink.shade900,
                    
                 ),
                 child: SfSlider.vertical(

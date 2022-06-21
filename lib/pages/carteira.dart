@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/cartaoPage.dart';
 import 'package:flutter_application_1/pages/novo.dart';
 
 class Carteira extends StatelessWidget {
@@ -8,7 +9,7 @@ class Carteira extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('Carteira'),
         actions: const <Widget>[
           Icon(
@@ -47,8 +48,8 @@ class Carteira extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _novo = Novo();
-                    return _novo;
+                    Widget _cartaoPage = CartaoPage();
+                    return _cartaoPage;
                   },
                 ));
               },

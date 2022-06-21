@@ -11,9 +11,9 @@ class Compra extends StatefulWidget {
 
 class _CompraState extends State<Compra> {
   Compra cliente = Compra();
-  static const values = <String>['Dinheiro', 'Cartão', 'Pix'];
-  String selectedValue = values.first;
-  final selectedColor = Color.fromRGBO(255, 119, 102, 10);
+  //static const values = <String>['Dinheiro', 'Cartão', 'Pix'];
+  //String selectedValue = values.first;
+  final selectedColor = Colors.pink.shade900;
   final unselectedColor = Colors.black;
   int _counter = 0;
 
@@ -45,7 +45,7 @@ class _CompraState extends State<Compra> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('Compra'),
         actions: <Widget>[
           Icon(
@@ -278,7 +278,7 @@ class _CompraState extends State<Compra> {
     return  MaterialButton(
         minWidth: width / 1.2,
         height: height / 15,
-        color:Color.fromRGBO(255, 119, 102, 10),
+        color: Colors.pink.shade900,
         onPressed: () {},
         child: Text(
           "Finalizar Compra",

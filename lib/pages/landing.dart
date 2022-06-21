@@ -23,7 +23,7 @@ class _Landing extends State<Landing> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor:  Colors.pink.shade900,
         elevation: 0,
       ),
       backgroundColor: const Color(0xFFffffff),

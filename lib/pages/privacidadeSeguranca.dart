@@ -26,7 +26,7 @@ late TextEditingController _controller;
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('Dados de Privacidade e Segurança'),
         actions: <Widget>[
           Icon(
