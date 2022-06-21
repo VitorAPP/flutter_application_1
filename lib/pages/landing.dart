@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/material.dart';
 
+import 'signin.dart';
+
 class Landing extends StatefulWidget {
   const Landing({Key? key}) : super(key: key);
 
@@ -103,8 +105,8 @@ class _Landing extends State<Landing> {
                     padding: const EdgeInsets.all(20),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        const snackBar =
-                            SnackBar(content: Text('Submitting sucessfully.'));
+                        const snackBar = SnackBar(
+                            content: Text('Conta criada com sucesso.'));
                         _scaffoldKey.currentState!.showSnackBar(snackBar);
                       }
                     },
@@ -124,9 +126,20 @@ class _Landing extends State<Landing> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Já tem conta?"),
-                  Text("Esqueceu sua senha?")
+                children: [
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      primary: Colors.black,
+                    ),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute<void>(
+                          builder: (BuildContext context) {
+                        Widget _novo = SignIn();
+                        return _novo;
+                      }));
+                    },
+                    child: Text("Já tem conta?"),
+                  )
                 ],
               ),
             ],

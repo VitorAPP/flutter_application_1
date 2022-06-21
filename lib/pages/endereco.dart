@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class Endereco extends StatefulWidget {
   const Endereco({Key? key}) : super(key: key);
 
@@ -7,8 +8,7 @@ class Endereco extends StatefulWidget {
 }
 
 class _EnderecoState extends State<Endereco> {
-
-late TextEditingController _controller;
+  late TextEditingController _controller;
 
   @override
   void initState() {
@@ -25,10 +25,10 @@ late TextEditingController _controller;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 119, 102, 10),
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
         title: const Text('Dados do Endereço'),
-        actions: <Widget>[
+        actions: const <Widget>[
           Icon(
             Icons.home_outlined,
             size: 50,
@@ -36,110 +36,119 @@ late TextEditingController _controller;
           ),
         ],
       ),
-      body:Container(  alignment: Alignment.center,
+      body: Container(
+        alignment: Alignment.center,
         margin: const EdgeInsets.symmetric(horizontal: 100),
         padding: const EdgeInsets.only(top: 20),
-        
-
-     child: Column(
-      children: [
-       
-        Row(
-                children: [
-                  
-                  Expanded(
-                      flex: 9,
-                      child: Text('CEP',
-                          style: TextStyle(color: Colors.grey, fontSize: 20.0),
-                          textAlign: TextAlign.left)),
-                ],
-              ),
-            Divider(color: Colors.white,),
-           Row(
-                children: [
-                  
-                  Expanded(
-                      flex: 9,
-                      child: Text('71966-700',
-                          style: TextStyle(color: Colors.black, fontSize: 20.0),
-                          textAlign: TextAlign.left)),
-                ],
-              ), 
-             Divider(color: Colors.white,),
-              Divider(color: Colors.white,),
-               Divider(color: Colors.white,),
-              Row(
-                children: [
-                  
-                  Expanded(
-                      flex: 9,
-                      child: Text('Endereço',
-                          style: TextStyle(color: Colors.grey, fontSize: 20.0),
-                          textAlign: TextAlign.left)),
-                ],
-              ),
-               Divider(color: Colors.white,),
-              Row(
-                children: [
-                  
-                  Expanded(
-                      flex: 9,
-                      child: Text('QS 07, Lote 01, Taguatinga Sul',
-                          style: TextStyle(color: Colors.black, fontSize: 20.0),
-                          textAlign: TextAlign.left)),
-                ],
-              ),
-               Divider(color: Colors.white,),
-                Divider(color: Colors.white,),
-              Row(
-                children: [
-                  
-                  Expanded(
-                      flex: 9,
-                      child: Text('Cidade',
-                          style: TextStyle(color: Colors.grey, fontSize: 20.0),
-                          textAlign: TextAlign.left)),
-                ],
-              ),
-               Divider(color: Colors.white,),
-              Row(
-                children: [
-                  
-                  Expanded(
-                      flex: 9,
-                      child: Text('Taguatinga',
-                          style: TextStyle(color: Colors.black, fontSize: 20.0),
-                          textAlign: TextAlign.left)),
-                ],
-              ),
-               Divider(color: Colors.white,),
-                Divider(color: Colors.white,),
-              Row(
-                children: [
-                  
-                  Expanded(
-                      flex: 9,
-                      child: Text('Estado',
-                          style: TextStyle(color: Colors.grey, fontSize: 20.0),
-                          textAlign: TextAlign.left)),
-                ],
-              ),
-               Divider(color: Colors.white,),
-              Row(
-                children: [
-                  
-                  Expanded(
-                      flex: 9,
-                      child: Text('Brasília - DF',
-                          style: TextStyle(color: Colors.black, fontSize: 20.0),
-                          textAlign: TextAlign.left)),
-                ],
-              ),    
-                
-        
-        
-      ],
-     ),
+        child: Column(
+          children: [
+            Row(
+              children: const [
+                Expanded(
+                    flex: 9,
+                    child: Text('CEP',
+                        style: TextStyle(color: Colors.grey, fontSize: 20.0),
+                        textAlign: TextAlign.left)),
+              ],
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            Row(
+              children: const [
+                Expanded(
+                    flex: 9,
+                    child: Text('71966-700',
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
+                        textAlign: TextAlign.left)),
+              ],
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            Row(
+              children: const [
+                Expanded(
+                    flex: 9,
+                    child: Text('Endereço',
+                        style: TextStyle(color: Colors.grey, fontSize: 20.0),
+                        textAlign: TextAlign.left)),
+              ],
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            Row(
+              children: const [
+                Expanded(
+                    flex: 9,
+                    child: Text('QS 07, Lote 01, Taguatinga Sul',
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
+                        textAlign: TextAlign.left)),
+              ],
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            Row(
+              children: const [
+                Expanded(
+                    flex: 9,
+                    child: Text('Cidade',
+                        style: TextStyle(color: Colors.grey, fontSize: 20.0),
+                        textAlign: TextAlign.left)),
+              ],
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            Row(
+              children: const [
+                Expanded(
+                    flex: 9,
+                    child: Text('Taguatinga',
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
+                        textAlign: TextAlign.left)),
+              ],
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            Row(
+              children: const [
+                Expanded(
+                    flex: 9,
+                    child: Text('Estado',
+                        style: TextStyle(color: Colors.grey, fontSize: 20.0),
+                        textAlign: TextAlign.left)),
+              ],
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            Row(
+              children: const [
+                Expanded(
+                    flex: 9,
+                    child: Text('Brasília - DF',
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
+                        textAlign: TextAlign.left)),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

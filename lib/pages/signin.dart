@@ -101,8 +101,8 @@ class _State extends State<SignIn> {
                     padding: const EdgeInsets.all(20),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        const snackBar =
-                            SnackBar(content: Text('Submitting sucessfully.'));
+                        const snackBar = SnackBar(
+                            content: Text('Login realizado com sucesso.'));
                         _scaffoldKey.currentState!.showSnackBar(snackBar);
                       }
                     },
