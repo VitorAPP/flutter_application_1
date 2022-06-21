@@ -49,8 +49,7 @@ class Config extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _notificacao = Notificacao();
-                    return _notificacao;
+                    return const Notificacao();
                   },
                 ));
               },
@@ -80,8 +79,7 @@ class Config extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _versao = Versao();
-                    return _versao;
+                    return const Versao();
                   },
                 ));
               },
@@ -111,8 +109,7 @@ class Config extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _novo = Novo();
-                    return _novo;
+                    return const Novo();
                     // return MyApp();
                   },
                 ));

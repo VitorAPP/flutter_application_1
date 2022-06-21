@@ -13,17 +13,17 @@ class Pedido extends StatefulWidget {
 }
 
 class _PedidoState extends State<Pedido> {
- // Pedido cliente = Pedido();
+  // Pedido cliente = Pedido();
   String apelido = "";
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-       appBar: AppBar(
-          backgroundColor: Color.fromRGBO(255, 119, 102, 10),
+        appBar: AppBar(
+          backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
           title: const Text('Pedido'),
-          actions: <Widget>[
+          actions: const <Widget>[
             Icon(
               Icons.delivery_dining_sharp,
               size: 50,
@@ -31,46 +31,47 @@ class _PedidoState extends State<Pedido> {
             ),
           ],
         ),
-       body: Center(
-              child: SfSliderTheme(
-                data: SfSliderThemeData(
-                    tickSize: Size(20.0, 0.0),
-                    thumbRadius: 22,
-                    activeDividerRadius: 11,
-                    inactiveDividerRadius: 12,
-                    activeTrackHeight: 10,
-                    inactiveTrackHeight: 7,
-                    activeDividerStrokeColor: Colors.green,
-                    activeDividerStrokeWidth: 12,
-                    activeTrackColor: Colors.green,
-                    inactiveDividerColor: Color.fromARGB(202, 207, 216, 220),
-                    thumbColor:Color.fromRGBO(255, 119, 102, 10),
-                   
-                ),
-                child: SfSlider.vertical(
-                 value: _value.toDouble(),
-          min: 1,
-          max: 4,
-          interval: 1,
-        //  showLabels: true,
-          showDividers: true,
-          thumbIcon: Icon(Icons.delivery_dining_sharp,color: Colors.green,size: 30,),
-          inactiveColor: Colors.blueGrey,
-          enableTooltip: true,
-
-
-           stepSize: 1,
-         // showTicks: true,
-          
-          isInversed: true,
-                  onChanged: (dynamic newValue){
-                    setState(() {
-                      _value = newValue;
-                    });
-                  },
-                ),
-              )
+        body: Center(
+            child: SfSliderTheme(
+          data: SfSliderThemeData(
+            tickSize: const Size(20.0, 0.0),
+            thumbRadius: 22,
+            activeDividerRadius: 11,
+            inactiveDividerRadius: 12,
+            activeTrackHeight: 10,
+            inactiveTrackHeight: 7,
+            activeDividerStrokeColor: Colors.green,
+            activeDividerStrokeWidth: 12,
+            activeTrackColor: Colors.green,
+            inactiveDividerColor: const Color.fromARGB(202, 207, 216, 220),
+            thumbColor: const Color.fromRGBO(255, 119, 102, 10),
           ),
+          child: SfSlider.vertical(
+            value: _value.toDouble(),
+            min: 1,
+            max: 4,
+            interval: 1,
+            //  showLabels: true,
+            showDividers: true,
+            thumbIcon: const Icon(
+              Icons.delivery_dining_sharp,
+              color: Colors.green,
+              size: 30,
+            ),
+            inactiveColor: Colors.blueGrey,
+            enableTooltip: true,
+
+            stepSize: 1,
+            // showTicks: true,
+
+            isInversed: true,
+            onChanged: (dynamic newValue) {
+              setState(() {
+                _value = newValue;
+              });
+            },
+          ),
+        )),
       ),
     );
   }

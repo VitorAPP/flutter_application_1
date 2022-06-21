@@ -26,7 +26,7 @@ class _PrivacidadeState extends State<Privacidade> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
         title: const Text('Dados de Privacidade e Segurança'),
         actions: const <Widget>[
           Icon(

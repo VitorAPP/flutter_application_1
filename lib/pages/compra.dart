@@ -216,7 +216,7 @@ class _CompraState extends State<Compra> {
             ),
           ),
           Text(
-            "Total: ${numOfItems} itens",
+            "Total: $numOfItems itens",
             style: const TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 17,
@@ -247,7 +247,7 @@ class _CompraState extends State<Compra> {
                   height: 60,
                 ),
                 title: Text(ctmodel.nome),
-                subtitle: Text("\R\$${ctmodel.valor.toStringAsFixed(2)}"),
+                subtitle: Text("R\$${ctmodel.valor.toStringAsFixed(2)}"),
                 isThreeLine: true,
                 trailing: IconButton(
                     icon: const Icon(
