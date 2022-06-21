@@ -293,8 +293,9 @@ class _PageBuscaState extends State<PageBusca> {
           width: 60,
           height: 60,
         ),
-        title: Text(remedio.nomeRemedio),
-        subtitle: Text("\R\$${remedio.valorRemedio}\ ${remedio.descRemedio}"),
+        title: Text(
+            "${remedio.nomeRemedio} - \R\$${remedio.valorRemedio.toStringAsFixed(2)}"),
+        subtitle: Text(remedio.descRemedio),
         isThreeLine: true,
         trailing: IconButton(
             icon: const Icon(
