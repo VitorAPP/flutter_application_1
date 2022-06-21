@@ -47,7 +47,8 @@ class _State extends State<SignIn> {
                     const InputDecoration(labelText: "Insira seu e-mail"),
                 validator: (value) {
                   if (value!.isEmpty ||
-                      !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
+                      !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                          .hasMatch(value)) {
                     return "Insira um e-mail válido";
                   } else {
                     return null;
@@ -57,30 +58,18 @@ class _State extends State<SignIn> {
               SizedBox(
                 height: height * 0.04,
               ),
-              TextFormField(
-                decoration:
-                    const InputDecoration(labelText: "Insira seu número"),
-                validator: (value) {
-                  if (value!.isEmpty ||
-                      !RegExp(r'^\s*(\d{2}|\d{0})[-. ]?(\d{5}|\d{4})[-. ]?(\d{4})[-. ]?\s*$')
-                          .hasMatch(value)) {
-                    return "Insira um número válido";
-                  } else {
-                    return null;
-                  }
-                },
-              ),
               SizedBox(
                 height: height * 0.05,
               ),
               TextFormField(
                 decoration:
-                    const InputDecoration(labelText: "Insira seu e-mail"),
+                    const InputDecoration(labelText: "Insira sua senha"),
+                obscureText: true,
                 validator: (value) {
                   if (value!.isEmpty ||
-                      !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                          .hasMatch(value)) {
-                    return "Insira um e-mail válido";
+                      !RegExp(r'^[a-z A-Z]+$').hasMatch(value) ||
+                      value.length < 8) {
+                    return "Insira uma senha válida";
                   } else {
                     return null;
                   }
