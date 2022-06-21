@@ -21,11 +21,24 @@ class _StateChat extends State<Chat> {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Chats'),
+        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        actions: const <Widget>[
+          Icon(
+            Icons.chat_outlined,
+            size: 50,
+            color: Colors.black,
+          ),
+        ],
+      ),
       body: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          SizedBox(height: height * 0.03),
           Expanded(
             child: ListView.builder(
               itemCount: chats.length,
