@@ -22,10 +22,10 @@ class DadosPessoal extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
+      body: Align(
         alignment: Alignment.topCenter,
-        margin: const EdgeInsets.symmetric(horizontal: 100),
-        padding: const EdgeInsets.only(top: 20),
+       // margin: const EdgeInsets.symmetric(horizontal: 100),
+       // padding: const EdgeInsets.only(top: 20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
