@@ -1,15 +1,15 @@
-import 'package:flutter_application_1/pages/landing.dart';
-import 'package:flutter_application_1/pages/novo.dart';
-import 'package:flutter_application_1/pages/password.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
+import 'signin.dart';
+
+class Password extends StatefulWidget {
+  const Password({Key? key}) : super(key: key);
+
   @override
   _State createState() => _State();
 }
 
-class _State extends State<SignIn> {
+class _State extends State<Password> {
   final formKey = GlobalKey<FormState>();
   String name = "";
 
@@ -21,7 +21,7 @@ class _State extends State<SignIn> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor:  Colors.pink.shade900,
+        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
         elevation: 0,
       ),
       backgroundColor: const Color(0xFFffffff),
@@ -36,7 +36,7 @@ class _State extends State<SignIn> {
                 height: height * 0.04,
               ),
               const Text(
-                'Bem-vindo de volta!',
+                'Vamos te ajudar!',
                 style: TextStyle(fontSize: 30),
               ),
               SizedBox(
@@ -56,26 +56,6 @@ class _State extends State<SignIn> {
                 },
               ),
               SizedBox(
-                height: height * 0.04,
-              ),
-              SizedBox(
-                height: height * 0.05,
-              ),
-              TextFormField(
-                decoration:
-                    const InputDecoration(labelText: "Insira sua senha"),
-                obscureText: true,
-                validator: (value) {
-                  if (value!.isEmpty ||
-                      !RegExp(r'^[a-z A-Z]+$').hasMatch(value) ||
-                      value.length < 8) {
-                    return "Insira uma senha válida";
-                  } else {
-                    return null;
-                  }
-                },
-              ),
-              SizedBox(
                 height: height * 0.05,
               ),
               SizedBox(
@@ -85,8 +65,8 @@ class _State extends State<SignIn> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    "Sentimos sua falta",
-                    style: TextStyle(fontSize: 22),
+                    "Um e-mail de recuperação de \nsenha será enviado pra você.",
+                    style: TextStyle(fontSize: 18),
                   ),
                   NeumorphicButton(
                     margin: const EdgeInsets.only(top: 12),
@@ -94,7 +74,7 @@ class _State extends State<SignIn> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         const snackBar = SnackBar(
-                            content: Text('Login realizado com sucesso.'));
+                            content: Text('E-mail enviado com sucesso.'));
                         _scaffoldKey.currentState!.showSnackBar(snackBar);
                       }
                     },
@@ -122,22 +102,10 @@ class _State extends State<SignIn> {
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute<void>(
                           builder: (BuildContext context) {
-                        return const Landing();
+                        return SignIn();
                       }));
                     },
-                    child: const Text("Não tem conta ainda?"),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      primary: Colors.black,
-                    ),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute<void>(
-                          builder: (BuildContext context) {
-                        return const Password();
-                      }));
-                    },
-                    child: const Text("Esqueceu sua senha?"),
+                    child: const Text("Voltar"),
                   )
                 ],
               ),

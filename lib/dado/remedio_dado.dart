@@ -1,58 +1,60 @@
 import 'dart:ui';
 
 import 'package:flutter_application_1/model/remedio.dart';
+
 void addParaCarteira() {}
- final todosRemedios = <Remedio>[
-  Remedio(
+final todosRemedios = <Remedio>[
+  const Remedio(
     id: 1,
     nomeRemedio: "Vitamina C ",
     descRemedio: " É usado para prevenir e tratar o escorbuto ",
-    imagemRemedio:"assets/images/vitc.png",
-        
+    imagemRemedio: "assets/images/vitc.png",
     valorRemedio: 14,
   ),
-  
-  Remedio(
+  const Remedio(
     id: 2,
     nomeRemedio: "Cetoconazol ",
-    descRemedio: "É um medicamento antiandrogênico e antifúngico usado para tratar várias infecções fúngicas ",
-    imagemRemedio:'assets/images/cetoconazol.png',
+    descRemedio:
+        "É um medicamento antiandrogênico e antifúngico usado para tratar várias infecções fúngicas ",
+    imagemRemedio: 'assets/images/cetoconazol.png',
     valorRemedio: 30,
   ),
-  
-  Remedio(
+  const Remedio(
     id: 3,
     nomeRemedio: "Dipirona ",
-    descRemedio: "Apaziguador de espasmos e apaziguador de febre que também tem efeitos anti-inflamatórios ",
-    imagemRemedio:"assets/images/dipirona.png",
-     valorRemedio: 9.99,
+    descRemedio:
+        "Apaziguador de espasmos e apaziguador de febre que também tem efeitos anti-inflamatórios ",
+    imagemRemedio: "assets/images/dipirona.png",
+    valorRemedio: 9.99,
   ),
-  Remedio(
+  const Remedio(
     id: 4,
     nomeRemedio: "Ibuprofeno ",
     descRemedio: "Princípio ativo que age contra inflamações não tão intensas",
-    imagemRemedio:"assets/images/ibuprofeno.png",
+    imagemRemedio: "assets/images/ibuprofeno.png",
     valorRemedio: 14.45,
   ),
-  Remedio(
+  const Remedio(
     id: 5,
     nomeRemedio: "Óleo mineral ",
     descRemedio: "Indicado como laxante no tratamento de prisão do ventre",
-    imagemRemedio:"assets/images/oleoMineral.png",
+    imagemRemedio: "assets/images/oleoMineral.png",
     valorRemedio: 10,
   ),
-  Remedio(
+  const Remedio(
     id: 6,
     nomeRemedio: "Biotina ",
-    descRemedio: "É um nutriente que age na formação e manutenção da pele e dos cabelos",
-    imagemRemedio:"assets/images/biotina.png",
+    descRemedio:
+        "É um nutriente que age na formação e manutenção da pele e dos cabelos",
+    imagemRemedio: "assets/images/biotina.png",
     valorRemedio: 10,
   ),
-  Remedio(
+  const Remedio(
     id: 7,
     nomeRemedio: "Danazol ",
-    descRemedio: "Tratamento de endometriose, doença fibrocística da mama, angioedema hereditário e outras condições ",
-    imagemRemedio:"assets/images/danazol.png",
+    descRemedio:
+        "Tratamento de endometriose, doença fibrocística da mama, angioedema hereditário e outras condições ",
+    imagemRemedio: "assets/images/danazol.png",
     valorRemedio: 10,
   ),
   /*
