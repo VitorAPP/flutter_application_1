@@ -21,9 +21,9 @@ class _State extends State<SignIn> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor:  Colors.pink.shade900,
-        elevation: 0,
-      ),
+          backgroundColor: Colors.pink.shade900,
+          elevation: 0,
+          title: const Text('Fazer Login')),
       backgroundColor: const Color(0xFFffffff),
       body: Container(
         padding: const EdgeInsets.only(left: 40, right: 40),

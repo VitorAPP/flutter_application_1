@@ -14,53 +14,55 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(
-            Icons.credit_card,
-            color: Colors.black,
-          ),
-          title:Container(
-          child:Row(children: [
-Text("Numero do cartão  "),
-Text(" Data de Vencimento"), 
-          ],)
+      leading: const Icon(
+        Icons.credit_card,
+        color: Colors.black,
       ),
-      subtitle:Container(
-          child:Row(children: [
-Text(product.numeroCart.toString()),
-Text("             "),
-Text(product.dataCart), 
-          ],)
-      ),
+      title: Container(
+          child: Row(
+        children: const [
+          Text("Numero do cartão  "),
+          Text(" Data de Vencimento"),
+        ],
+      )),
+      subtitle: Container(
+          child: Row(
+        children: [
+          Text(product.numeroCart.toString()),
+          const Text("             "),
+          Text(product.dataCart),
+        ],
+      )),
       trailing: Container(
         width: 100,
         child: Row(
           children: [
             IconButton(
-              icon: Icon(Icons.edit),
+              icon: const Icon(Icons.edit),
               color: Theme.of(context).primaryColor,
               onPressed: () {
-               Navigator.of(context).pushNamed(
+                Navigator.of(context).pushNamed(
                   AppRoutes.CARTAO_FORM,
                   arguments: product,
                 );
               },
             ),
             IconButton(
-              icon: Icon(Icons.delete),
+              icon: const Icon(Icons.delete),
               color: Theme.of(context).errorColor,
               onPressed: () {
                 showDialog<bool>(
                   context: context,
                   builder: (ctx) => AlertDialog(
-                    title: Text('Excluir Cartão'),
-                    content: Text('Tem certeza?'),
+                    title: const Text('Excluir Cartão'),
+                    content: const Text('Tem certeza?'),
                     actions: [
                       TextButton(
-                        child: Text('Não'),
+                        child: const Text('Não'),
                         onPressed: () => Navigator.of(ctx).pop(false),
                       ),
                       TextButton(
-                        child: Text('Sim'),
+                        child: const Text('Sim'),
                         onPressed: () => Navigator.of(ctx).pop(true),
                       ),
                     ],
