@@ -295,7 +295,7 @@ class _CompraState extends State<Compra> {
       child: const Text(
         "Finalizar Compra",
         style: TextStyle(
-            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 18),
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
       ),
     );
   }
