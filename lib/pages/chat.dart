@@ -25,7 +25,7 @@ class _StateChat extends State<Chat> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Chats'),
-        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor: Colors.pink.shade900,
         actions: const <Widget>[
           Icon(
             Icons.chat_outlined,

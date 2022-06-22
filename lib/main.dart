@@ -1,4 +1,3 @@
-
 import 'package:provider/provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,13 +52,11 @@ class MyApp extends StatelessWidget {
           AppRoutes.CARTAO_FORM: (ctx) => CartaoFormPage(),
         },
         debugShowCheckedModeBanner: false,
-   
-         home: MyHomePage(title: title),
+
+        home: MyHomePage(title: title),
       ),
     );
   }
-
-  
 }
 
 class MyHomePage extends StatefulWidget {
@@ -111,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  Colors.pink.shade900,
+        backgroundColor: Colors.pink.shade900,
         title: const Text('DrogaLive'),
         actions: const <Widget>[],
       ),
@@ -135,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.home),
           ),
         ],
-        selectedItemColor:  Colors.pink.shade900,
+        selectedItemColor: Colors.pink.shade900,
         unselectedItemColor: const Color.fromARGB(255, 214, 214, 214),
       ),
     );
@@ -166,8 +163,7 @@ class PagePerfil extends StatelessWidget {
       required Text textoDoIncone,
       required int x}) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          primary:  Colors.pink.shade900),
+      style: ElevatedButton.styleFrom(primary: Colors.pink.shade900),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute<void>(
           builder: (BuildContext context) {
@@ -317,8 +313,9 @@ class _PageBuscaState extends State<PageBusca> {
           width: 60,
           height: 60,
         ),
-        title: Text(remedio.nomeRemedio),
-        subtitle: Text("\R\$${remedio.valorRemedio}\ ${remedio.descRemedio}"),
+        title: Text(
+            "${remedio.nomeRemedio} - R\$${remedio.valorRemedio.toStringAsFixed(2)}"),
+        subtitle: Text(remedio.descRemedio),
         isThreeLine: true,
         trailing: IconButton(
             icon: const Icon(
@@ -340,6 +337,7 @@ class _PageBuscaState extends State<PageBusca> {
                   qtdeRemedio: 1);
 
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  duration: Duration(milliseconds: 600),
                   content: Icon(Icons.add_task,
                       color: Color.fromARGB(255, 49, 159, 98))));
             }),
