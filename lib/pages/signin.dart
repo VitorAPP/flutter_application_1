@@ -69,7 +69,7 @@ class _State extends State<SignIn> {
                   if (value!.isEmpty ||
                       !RegExp(r'^[a-z A-Z]+$').hasMatch(value) ||
                       value.length < 8) {
-                    return "Insira uma senha válida";
+                    return "Senhas possuem 8 caracteres alfanuméricos";
                   } else {
                     return null;
                   }
