@@ -79,8 +79,7 @@ class Carteira extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _carteira = Carteira();
-                    return _carteira;
+                    return const Carteira();
                   },
                 ));
               },
@@ -110,8 +109,7 @@ class Carteira extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _novo = Novo();
-                    return _novo;
+                    return const Novo();
                     // return MyApp();
                   },
                 ));

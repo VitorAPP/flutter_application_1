@@ -56,12 +56,11 @@ class DadosPessoal extends StatelessWidget {
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(246, 214, 214, 214)),
+                  primary: const Color.fromARGB(246, 214, 214, 214)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _conta = Conta();
-                    return _conta;
+                    return const Conta();
                   },
                 ));
               },
@@ -87,12 +86,11 @@ class DadosPessoal extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(246, 214, 214, 214)),
+                  primary: const Color.fromARGB(246, 214, 214, 214)),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _endereco = Endereco();
-                    return _endereco;
+                    return const Endereco();
                   },
                 ));
               },
@@ -122,8 +120,7 @@ class DadosPessoal extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _privacidade = Privacidade();
-                    return _privacidade;
+                    return const Privacidade();
                     // return MyApp();
                   },
                 ));
@@ -161,8 +158,7 @@ class DadosPessoal extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _landing = Landing();
-                    return _landing;
+                    return const Landing();
                     // return MyApp();
                   },
                 ));

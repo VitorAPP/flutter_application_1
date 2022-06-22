@@ -6,7 +6,8 @@ import 'package:flutter_application_1/model/carteira_model.dart';
 import 'package:flutter_application_1/model/remedio.dart';
 import 'package:flutter_application_1/model/cartao_list.dart';
 import 'package:flutter_application_1/pages/carteira.dart';
-
+import 'package:flutter_application_1/pages/chat.dart';
+import 'package:flutter_application_1/pages/four.dart';
 import 'package:flutter_application_1/pages/novo.dart';
 import 'package:flutter_application_1/pages/config.dart';
 import 'package:flutter_application_1/pages/compra.dart';
@@ -173,7 +174,7 @@ class PagePerfil extends StatelessWidget {
             var cadaum = [
               const Compra(),
               const Pedido(),
-              const Novo(),
+              const Chat(),
               const DadosPessoal(),
               const Carteira(),
               const Config()

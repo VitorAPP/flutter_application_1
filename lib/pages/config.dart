@@ -3,12 +3,19 @@ import 'package:flutter_application_1/pages/notificacao.dart';
 import 'package:flutter_application_1/pages/novo.dart';
 import 'package:flutter_application_1/pages/versao.dart';
 
-class Config extends StatelessWidget {
+class Config extends StatefulWidget {
   const Config({Key? key}) : super(key: key);
 
   @override
+  _Config createState() => _Config();
+}
+
+class _Config extends State<Config> {
+  @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor:  Colors.pink.shade900,
         title: const Text('Configurações'),
@@ -49,8 +56,7 @@ class Config extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _notificacao = Notificacao();
-                    return _notificacao;
+                    return const Notificacao();
                   },
                 ));
               },
@@ -80,8 +86,7 @@ class Config extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    Widget _versao = Versao();
-                    return _versao;
+                    return const Versao();
                   },
                 ));
               },
@@ -109,13 +114,9 @@ class Config extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                   primary: const Color.fromARGB(246, 214, 214, 214)),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute<void>(
-                  builder: (BuildContext context) {
-                    Widget _novo = Novo();
-                    return _novo;
-                    // return MyApp();
-                  },
-                ));
+                const snackBar =
+                    SnackBar(content: Text('Histórico apagado com sucesso.'));
+                _scaffoldKey.currentState!.showSnackBar(snackBar);
               },
               child: const ListTile(
                 leading: Icon(
