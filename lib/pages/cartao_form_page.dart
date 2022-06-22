@@ -90,12 +90,12 @@ class _CartaoFormPageState extends State<CartaoFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Formulário do Cartão'),
-        backgroundColor:  Colors.pink.shade900,
+        title: const Text('Formulário do Cartão'),
+        backgroundColor: Colors.pink.shade900,
         actions: [
           IconButton(
             onPressed: _submitForm,
-            icon: Icon(Icons.save),
+            icon: const Icon(Icons.save),
           ),
         ],
       ),
@@ -107,7 +107,7 @@ class _CartaoFormPageState extends State<CartaoFormPage> {
             children: [
               TextFormField(
                 initialValue: _formData['nome']?.toString(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Nome',
                 ),
                 textInputAction: TextInputAction.next,
@@ -122,8 +122,8 @@ class _CartaoFormPageState extends State<CartaoFormPage> {
                     return 'Nome é obrigatório';
                   }
 
-                  if (nome.trim().length < 3) {
-                    return 'Nome precisa no mínimo de 3 letras.';
+                  if (nome.trim().length < 8) {
+                    return 'Nomes devem ter 8 caracteres';
                   }
 
                   return null;
@@ -131,23 +131,24 @@ class _CartaoFormPageState extends State<CartaoFormPage> {
               ),
               TextFormField(
                 initialValue: _formData['numeroCart']?.toString(),
-                decoration: InputDecoration(labelText: 'Número do Cartão'),
+                decoration:
+                    const InputDecoration(labelText: 'Número do Cartão'),
                 textInputAction: TextInputAction.next,
                 focusNode: _numeroCartFocus,
-                keyboardType: TextInputType.numberWithOptions(
+                keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_cvvFocus);
                 },
                 onSaved: (numeroCart) =>
-                    _formData['numeroCart'] = double.parse(numeroCart ?? ''),
+                    _formData['numeroCart'] = numeroCart ?? '',
                 validator: (_numeroCart) {
                   final numeroCartString = _numeroCart ?? '';
                   final numeroCart = double.tryParse(numeroCartString) ?? -1;
 
                   if (numeroCart <= 0) {
-                    return 'Informe um preço válido.';
+                    return 'Informe um número válido.';
                   }
 
                   return null;
@@ -155,21 +156,19 @@ class _CartaoFormPageState extends State<CartaoFormPage> {
               ),
               TextFormField(
                 initialValue: _formData['cvv']?.toString(),
-                decoration: InputDecoration(labelText: 'CVV'),
+                decoration: const InputDecoration(labelText: 'CVV'),
                 focusNode: _cvvFocus,
                 keyboardType: TextInputType.multiline,
-                maxLines: 3,
-                onSaved: (cvv) =>
-                    _formData['cvv']  = double.parse(cvv ?? ''),
+                onSaved: (cvv) => _formData['cvv'] = int.parse(cvv ?? ''),
                 validator: (_cvv) {
                   final cvv = _cvv ?? '';
 
                   if (cvv.trim().isEmpty) {
-                    return 'Descrição é obrigatória.';
+                    return 'CVV é obrigatório.';
                   }
 
                   if (cvv.trim().length < 3) {
-                    return 'Descrição precisa no mínimo de 3 letras.';
+                    return 'CVV precisa no mínimo de 3 dígitos.';
                   }
 
                   return null;
@@ -180,7 +179,8 @@ class _CartaoFormPageState extends State<CartaoFormPage> {
                 children: [
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Data do Cartão'),
+                      decoration:
+                          const InputDecoration(labelText: 'Data do Cartão'),
                       keyboardType: TextInputType.url,
                       textInputAction: TextInputAction.done,
                       focusNode: _dataCartFocus,
@@ -188,25 +188,21 @@ class _CartaoFormPageState extends State<CartaoFormPage> {
                       onFieldSubmitted: (_) => _submitForm(),
                       onSaved: (dataCart) =>
                           _formData['dataCart'] = dataCart ?? '',
-                    
-                        validator: (_dataCart) {
-                  final dataCart = _dataCart ?? '';
+                      validator: (_dataCart) {
+                        final dataCart = _dataCart ?? '';
 
-                  if (dataCart.trim().isEmpty) {
-                    return 'Nome é obrigatório';
-                  }
+                        if (dataCart.trim().isEmpty) {
+                          return 'Data é obrigatória';
+                        }
 
-                  if (dataCart.trim().length < 3) {
-                    return 'Nome precisa no mínimo de 3 letras.';
-                  }
-
-                  return null;
-                },
-                        
-
+                        if (!RegExp(r'^\d{2}/\d{2}$')
+                            .hasMatch(dataCart.trim())) {
+                          return 'Data inválida (formato: dd/mm)';
+                        }
+                        return null;
+                      },
                     ),
                   ),
-                  
                 ],
               ),
             ],

@@ -20,16 +20,14 @@ class ProductItem extends StatelessWidget {
       ),
       title: Container(
           child: Row(
-        children: const [
-          Text("Numero do cartão  "),
-          Text(" Data de Vencimento"),
+        children: [
+          Text(product.numeroCart.toString()),
         ],
       )),
       subtitle: Container(
           child: Row(
         children: [
-          Text(product.numeroCart.toString()),
-          const Text("             "),
+          const Text("Data de Vencimento: "),
           Text(product.dataCart),
         ],
       )),

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class Product with ChangeNotifier {
   final String id;
   final String nome;
-  final double numeroCart;
-  final double cvv;
+  final String numeroCart;
+  final int cvv;
   final String dataCart;
   bool isFavorite;
 

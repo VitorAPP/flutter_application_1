@@ -55,7 +55,7 @@ class _CompraState extends State<Compra> {
           ),
         ],
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -83,10 +83,11 @@ class _CompraState extends State<Compra> {
       height: height / 6,
       child: Column(
         children: <Widget>[
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                SizedBox(width: width / 10),
+          Expanded(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                SizedBox(width: width / 15),
                 Expanded(
                     child: Container(
                         alignment: Alignment.center,
@@ -113,7 +114,6 @@ class _CompraState extends State<Compra> {
                           ],
                         )),
                     flex: 1),
-                SizedBox(width: width / 10),
                 Expanded(
                     child: Container(
                         alignment: Alignment.center,
@@ -140,7 +140,6 @@ class _CompraState extends State<Compra> {
                           ],
                         )),
                     flex: 1),
-                SizedBox(width: width / 10),
                 Expanded(
                     child: Container(
                         alignment: Alignment.center,
@@ -167,9 +166,9 @@ class _CompraState extends State<Compra> {
                           ],
                         )),
                     flex: 1)
-              ]),
+              ])),
           SizedBox(height: height / 20),
-          materialButton(width, height)
+          Expanded(child: materialButton(width, height))
         ],
       ),
     );
@@ -180,7 +179,7 @@ class _CompraState extends State<Compra> {
     return Container(
       width: width,
       height: height / 10,
-      padding: EdgeInsets.symmetric(horizontal: width / 10),
+      padding: EdgeInsets.symmetric(horizontal: width / 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -258,7 +257,8 @@ class _CompraState extends State<Compra> {
       height: height / 20,
       child: Column(
         children: [
-          Container(
+          Expanded(
+              child: Container(
             padding: EdgeInsets.symmetric(horizontal: width / 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -279,7 +279,7 @@ class _CompraState extends State<Compra> {
                 ),
               ],
             ),
-          ),
+          )),
         ],
       ),
     );

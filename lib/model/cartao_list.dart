@@ -21,8 +21,8 @@ class ProductList with ChangeNotifier {
     final product = Product(
       id: hasId ? data['id'] as String : Random().nextDouble().toString(),
       nome: data['nome'] as String,
-      numeroCart: data['numeroCart'] as double,
-      cvv: data['cvv'] as double,
+      numeroCart: data['numeroCart'] as String,
+      cvv: data['cvv'] as int,
       dataCart: data['dataCart'] as String,
     );
 
