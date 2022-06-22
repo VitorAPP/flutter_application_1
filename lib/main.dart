@@ -202,10 +202,10 @@ class PagePerfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
+      child: Align(
         alignment: Alignment.center,
-        margin: const EdgeInsets.symmetric(horizontal: 100),
-        padding: const EdgeInsets.only(top: 20),
+       // margin: const EdgeInsets.symmetric(horizontal: 100),
+       // padding: const EdgeInsets.only(top: 20),
         child: Column(
           children: [
             const Icon(Icons.account_circle, size: 50),
