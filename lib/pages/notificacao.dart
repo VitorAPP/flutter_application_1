@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/novo.dart';
 
 class Notificacao extends StatefulWidget {
   const Notificacao({Key? key}) : super(key: key);
@@ -15,7 +14,7 @@ class _State extends State<Notificacao> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  Colors.pink.shade900,
+        backgroundColor: Colors.pink.shade900,
         title: const Text('Notificações e alertas'),
         actions: const <Widget>[
           Icon(

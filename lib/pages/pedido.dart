@@ -20,7 +20,7 @@ class _PedidoState extends State<Pedido> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-       appBar: AppBar(
+        appBar: AppBar(
           backgroundColor: Colors.pink.shade900,
           title: const Text('Pedido'),
           actions: const <Widget>[
@@ -44,7 +44,7 @@ class _PedidoState extends State<Pedido> {
             activeDividerStrokeWidth: 12,
             activeTrackColor: Colors.green,
             inactiveDividerColor: const Color.fromARGB(202, 207, 216, 220),
-            thumbColor: const Color.fromRGBO(255, 119, 102, 10),
+            thumbColor: Colors.pink.shade900,
           ),
           child: SfSlider.vertical(
             value: _value.toDouble(),
@@ -55,7 +55,7 @@ class _PedidoState extends State<Pedido> {
             showDividers: true,
             thumbIcon: const Icon(
               Icons.delivery_dining_sharp,
-              color: Colors.green,
+              color: Colors.white,
               size: 30,
             ),
             inactiveColor: Colors.blueGrey,
