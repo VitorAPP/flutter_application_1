@@ -7,6 +7,7 @@ class Novo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('Novo'),
       ),
       body: const Center(

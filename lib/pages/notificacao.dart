@@ -15,7 +15,7 @@ class _State extends State<Notificacao> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('Notificações e alertas'),
         actions: const <Widget>[
           Icon(

@@ -1,13 +1,13 @@
-//import 'dart:convert';
-//import 'dart:html';
 
+import 'package:provider/provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/carteira_model.dart';
 import 'package:flutter_application_1/model/remedio.dart';
+import 'package:flutter_application_1/model/cartao_list.dart';
 import 'package:flutter_application_1/pages/carteira.dart';
 import 'package:flutter_application_1/pages/chat.dart';
-import 'package:flutter_application_1/pages/four.dart';
+
 import 'package:flutter_application_1/pages/novo.dart';
 import 'package:flutter_application_1/pages/config.dart';
 import 'package:flutter_application_1/pages/compra.dart';
@@ -15,6 +15,9 @@ import 'package:flutter_application_1/pages/pedido.dart';
 import 'package:flutter_application_1/pages/dadosPessoa.dart';
 import 'package:flutter_application_1/widget/search_widget.dart';
 import 'package:flutter_application_1/dado/remedio_dado.dart';
+import 'package:flutter_application_1/pages/cartaoPage.dart';
+import 'package:flutter_application_1/pages/cartao_form_page.dart';
+import 'package:flutter_application_1/ultis/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,12 +34,32 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: title,
-      home: MyHomePage(title: title),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => ProductList(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.pink,
+          accentColor: Colors.deepOrange,
+          fontFamily: 'Lato',
+        ),
+        // home: ProductsOverviewPage(),
+        routes: {
+          AppRoutes.CARTAO: (ctx) => CartaoPage(),
+          AppRoutes.CARTAO_FORM: (ctx) => CartaoFormPage(),
+        },
+        debugShowCheckedModeBanner: false,
+   
+         home: MyHomePage(title: title),
+      ),
     );
   }
+
+  
 }
 
 class MyHomePage extends StatefulWidget {
@@ -88,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('DrogaLive'),
         actions: const <Widget>[],
       ),
@@ -112,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.home),
           ),
         ],
-        selectedItemColor: const Color.fromRGBO(255, 119, 102, 10),
+        selectedItemColor:  Colors.pink.shade900,
         unselectedItemColor: const Color.fromARGB(255, 214, 214, 214),
       ),
     );
@@ -144,7 +167,7 @@ class PagePerfil extends StatelessWidget {
       required int x}) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          primary: const Color.fromRGBO(255, 119, 102, 10)),
+          primary:  Colors.pink.shade900),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute<void>(
           builder: (BuildContext context) {
@@ -294,9 +317,8 @@ class _PageBuscaState extends State<PageBusca> {
           width: 60,
           height: 60,
         ),
-        title: Text(
-            "${remedio.nomeRemedio} - \R\$${remedio.valorRemedio.toStringAsFixed(2)}"),
-        subtitle: Text(remedio.descRemedio),
+        title: Text(remedio.nomeRemedio),
+        subtitle: Text("\R\$${remedio.valorRemedio}\ ${remedio.descRemedio}"),
         isThreeLine: true,
         trailing: IconButton(
             icon: const Icon(
@@ -318,7 +340,6 @@ class _PageBuscaState extends State<PageBusca> {
                   qtdeRemedio: 1);
 
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  duration: Duration(milliseconds: 600),
                   content: Icon(Icons.add_task,
                       color: Color.fromARGB(255, 49, 159, 98))));
             }),

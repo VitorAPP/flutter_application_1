@@ -7,7 +7,7 @@ class Versao extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('Versão do DrogaLive'),
         actions: const <Widget>[
           Icon(

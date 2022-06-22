@@ -25,8 +25,8 @@ class _ContaState extends State<Conta> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+     appBar: AppBar(
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('Dados da conta'),
         actions: const <Widget>[
           Icon(

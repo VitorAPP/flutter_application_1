@@ -12,7 +12,7 @@ class DadosPessoal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('Dados pessoais'),
         actions: const <Widget>[
           Icon(
@@ -154,7 +154,7 @@ class DadosPessoal extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: const Color.fromRGBO(255, 119, 102, 10)),
+                  primary:  Colors.pink.shade900),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {

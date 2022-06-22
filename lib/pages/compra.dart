@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/carteira_model.dart';
-import 'package:flutter_application_1/pages/conta.dart';
 import 'package:flutter_application_1/widget/vazia_list.dart';
 
 class Compra extends StatefulWidget {
@@ -11,10 +10,10 @@ class Compra extends StatefulWidget {
 }
 
 class _CompraState extends State<Compra> {
-  Compra cliente = const Compra();
-  static const values = <String>['Dinheiro', 'Cartão', 'Pix'];
-  String selectedValue = values.first;
-  final selectedColor = const Color.fromRGBO(255, 119, 102, 10);
+  Compra cliente = Compra();
+  //static const values = <String>['Dinheiro', 'Cartão', 'Pix'];
+  //String selectedValue = values.first;
+  final selectedColor = Colors.pink.shade900;
   final unselectedColor = Colors.black;
   int _counter = 0;
 
@@ -46,9 +45,9 @@ class _CompraState extends State<Compra> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+        backgroundColor:  Colors.pink.shade900,
         title: const Text('Compra'),
-        actions: const <Widget>[
+        actions: <Widget>[
           Icon(
             Icons.shopping_cart,
             size: 50,
@@ -57,7 +56,6 @@ class _CompraState extends State<Compra> {
         ],
       ),
       body: Center(
-          child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -66,7 +64,7 @@ class _CompraState extends State<Compra> {
                 ? EmptyList()
                 : Column(children: [
                     mainListView(width, height),
-                    const SizedBox(
+                    SizedBox(
                       height: 12,
                     ),
                     bottominfo(width, height),
@@ -74,7 +72,7 @@ class _CompraState extends State<Compra> {
                   ])
           ],
         ),
-      )),
+      ),
     );
   }
 
@@ -82,99 +80,69 @@ class _CompraState extends State<Compra> {
   buildRadios(width, height) {
     return Container(
       width: width,
-      height: height / 6,
+      height: height / 7,
       child: Column(
         children: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              Expanded(
-                  child: Container(
-                      width: MediaQuery.of(context).size.width * (1 / 3),
-                      child: Row(
-                        children: [
-                          SizedBox(width: width / 10),
-                          Radio(
-                            activeColor: selectedColor,
-                            value: 1,
-                            groupValue: id,
-                            onChanged: (val) {
-                              setState(() {
-                                id = 1;
-                              });
-                            },
-                          ),
-                          const Text(
-                            "Dinheiro",
-                            style: TextStyle(
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18),
-                          )
-                        ],
-                      )),
-                  flex: 1),
-              Expanded(
-                  child: Container(
-                      alignment: Alignment.center,
-                      width: MediaQuery.of(context).size.width * (1 / 3),
-                      child: Row(
-                        children: [
-                          SizedBox(width: width / 10),
-                          Radio(
-                            activeColor: selectedColor,
-                            value: 2,
-                            groupValue: id,
-                            onChanged: (val) {
-                              setState(() {
-                                id = 2;
-                              });
-                            },
-                          ),
-                          const Text(
-                            "Cartão",
-                            style: TextStyle(
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18),
-                          ),
-                        ],
-                      )),
-                  flex: 1),
-              Expanded(
-                  child: Container(
-                      alignment: Alignment.center,
-                      width: MediaQuery.of(context).size.width * (1 / 3),
-                      child: Row(
-                        children: [
-                          SizedBox(width: width / 10),
-                          Radio(
-                            activeColor: selectedColor,
-                            value: 3,
-                            groupValue: id,
-                            onChanged: (val) {
-                              setState(() {
-                                id = 3;
-                              });
-                            },
-                          ),
-                          const Text(
-                            "Pix",
-                            style: TextStyle(
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18),
-                          ),
-                        ],
-                      )),
-                  flex: 1),
+              Radio(
+                activeColor: selectedColor,
+                value: 1,
+                groupValue: id,
+                onChanged: (val) {
+                  setState(() {
+                    id = 1;
+                  });
+                },
+              ),
+              Text(
+                  "Dinheiro",
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.bold,
+                      fontSize:18),
+                ),
+              Radio(
+                activeColor: selectedColor,
+                value: 2,
+                groupValue: id,
+                onChanged: (val) {
+                  setState(() {
+                    id = 2;
+                  });
+                },
+              ),
+              Text(
+                  "Cartão",
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                ),
+              Radio(
+                activeColor: selectedColor,
+                value: 3,
+                groupValue: id,
+                onChanged: (val) {
+                  setState(() {
+                    id = 3;
+                  });
+                },
+              ),
+             Text(
+                  "Pix",
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                ),
             ],
           ),
-          SizedBox(height: height / 15),
           materialButton(width, height)
         ],
       ),
-      /*Column(
+       /*Column(
           children: values.map(
             (value) {
               final selected = this.selectedValue == value;
@@ -198,13 +166,11 @@ class _CompraState extends State<Compra> {
         ),*/
     );
   }
-
 //Componete top
   topText(width, height) {
     return Container(
       width: width,
       height: height / 10,
-      padding: EdgeInsets.symmetric(horizontal: width / 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -226,12 +192,12 @@ class _CompraState extends State<Compra> {
       ),
     );
   }
-
 //componete meio lista produto
   mainListView(width, height) {
     return Container(
       width: width,
       height: height / 2.0,
+      
       child: ListView.builder(
           scrollDirection: Axis.vertical,
           itemCount: carteiraModels.length,
@@ -255,7 +221,7 @@ class _CompraState extends State<Compra> {
                       color: Colors.red,
                     ),
                     splashColor: Colors.red,
-                    tooltip: 'Remover do carrinho de compras',
+                   tooltip: 'Remover do carrinho de compras',
                     onPressed: () {
                       ctmodel.qtdeRemedio--;
                       setState(() {
@@ -263,8 +229,8 @@ class _CompraState extends State<Compra> {
                         carteiraModels.remove(ctmodel);
                         numOfItems = carteiraModels.length;
                       });
+
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          duration: Duration(milliseconds: 600),
                           content: Icon(Icons.remove_shopping_cart_outlined,
                               color: Color.fromARGB(255, 49, 159, 98))));
                     }),
@@ -279,23 +245,23 @@ class _CompraState extends State<Compra> {
     return Container(
       width: width,
       height: height / 20,
+     
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: width / 3),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "Total:",
+                Text(
+                  "TOTAL",
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
-                      fontSize: 20),
+                      fontSize: 16),
                 ),
                 Text(
-                  "\R\$${somaTotalValorCarteira().toStringAsFixed(2)}",
-                  style: const TextStyle(
+                  "\R\$${somaTotalValorCarteira()}",
+                  style: TextStyle(
                       color: Colors.black87,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
@@ -307,19 +273,20 @@ class _CompraState extends State<Compra> {
       ),
     );
   }
-
-  //componete botão de finalizar compra
+ //componete botão de finalizar compra
   materialButton(width, height) {
-    return MaterialButton(
-      minWidth: width / 1.2,
-      height: height / 15,
-      color: const Color.fromRGBO(255, 119, 102, 10),
-      onPressed: () {},
-      child: const Text(
-        "Finalizar Compra",
-        style: TextStyle(
-            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 18),
-      ),
+    return  MaterialButton(
+        minWidth: width / 1.2,
+        height: height / 15,
+        color: Colors.pink.shade900,
+        onPressed: () {},
+        child: Text(
+          "Finalizar Compra",
+          style: TextStyle(color: Colors.black87,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+        ),
+      
     );
   }
 }

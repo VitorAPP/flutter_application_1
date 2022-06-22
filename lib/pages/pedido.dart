@@ -20,8 +20,8 @@ class _PedidoState extends State<Pedido> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(255, 119, 102, 10),
+       appBar: AppBar(
+          backgroundColor: Colors.pink.shade900,
           title: const Text('Pedido'),
           actions: const <Widget>[
             Icon(
