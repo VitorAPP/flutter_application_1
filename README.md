@@ -1,4 +1,4 @@
-# flutter_application_1 - DrogaLive
+# DrogaLive
 
 O projeto da DrogaLive visa criar um aplicativo que permita aos usuários realizar pedidos farmacêuticos (remédios, loções etc) por meio do
 uso de um app mobile. Com alguns cliques, o usuário faz seu pedido e o recebe no endereço que cadastrou em sua conta do DrogaLive.
